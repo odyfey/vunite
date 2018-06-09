@@ -45,6 +45,8 @@
 <script type="text/javascript">
 import moment from 'moment'
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
+import { DISCOURSE_BACKEND } from '../const'
+
 export default {
   name: 'TopicList',
   components: {
@@ -61,7 +63,7 @@ export default {
     avatar(id) {
       var user = this.users.find((user) => user.id === id)
       if (user)
-        return `https://developer-forum.rokid.com/${user.avatar_template.replace('{size}', 36)}`
+        return `${DISCOURSE_BACKEND}/${user.avatar_template.replace('{size}', 36)}`
       else
         return null
     },

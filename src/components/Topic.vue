@@ -113,11 +113,12 @@
 
 <script>
 import moment from 'moment'
+import pangu from 'pangu'
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import { mapGetters } from 'vuex'
 import EditDiscussion from './EditDiscussion'
 import MyEditor from './MyEditor'
-import pangu from 'pangu'
+import { DISCOURSE_BACKEND } from '../const'
 
 export default {
   name: 'Topic',
@@ -169,7 +170,7 @@ export default {
       return pangu.spacing(text)
     },
     avatar(template_url, item) {
-      return `https://developer-forum.rokid.com/${template_url.replace('{size}', this.avatarSize)}`
+      return `${DISCOURSE_BACKEND}/${template_url.replace('{size}', this.avatarSize)}`
     },
     calendar(date) {
       return moment(date).fromNow()
@@ -294,7 +295,7 @@ export default {
           resultPost = response.data
         }
         // hack: 发表回复后图片路径替换。discourse会自动替换，但posts不会
-        resultPost.cooked = resultPost.cooked.replace(/<img src="(\S+)"/g, '<img src="//developer-forum.rokid.com$1"')
+        resultPost.cooked = resultPost.cooked.replace(/<img src="(\S+)"/g, '<img src="//discourse.test$1"')
         // bug-fix: 原评论数没同步，导致无限加载
         this.rawTopic.posts_count++;
         this.posts.push(resultPost)

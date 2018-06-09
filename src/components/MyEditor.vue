@@ -55,6 +55,7 @@
 import { mapGetters } from 'vuex'
 import { Picker } from 'emoji-mart-vue'
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
+import { DISCOURSE_BACKEND } from '../const'
 
 export default {
   name: 'NewDiscussion',
@@ -138,7 +139,7 @@ export default {
           'Content-Type': 'multipart/form-data',
         },
       })
-      this.$refs.editor.$img2Url(pos, 'https://developer-forum.rokid.com' + res.data.url)
+      this.$refs.editor.$img2Url(pos, `${DISCOURSE_BACKEND}res.data.url`)
     },
     handleUploadFile(context) {
       var data = new FormData()
@@ -161,7 +162,7 @@ export default {
     onUploadFileSuccess(res, file, fileList) {
       let editor = this.$refs.editor;
       editor.insertText(editor.getTextareaDom(), {
-        prefix: '[' + res.data.original_filename + '](https://developer-forum.rokid.com' + res.data.url + ')',
+        prefix: `[${res.data.original_filename}](${DISCOURSE_BACKEND}${res.data.url})`,
         subfix: '',
         str: ''
       })

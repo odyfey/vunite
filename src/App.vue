@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { DISCOURSE_SSO_PROXY } from './const'
+import {  DISCOURSE_BACKEND, DISCOURSE_SSO_PROXY } from './const'
 import Sidebar from '@/components/Sidebar'
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import { mapActions, mapGetters } from 'vuex'
@@ -77,7 +77,7 @@ export default {
   computed: {
     ...mapGetters(['authorized', 'username', 'unreadNotifications']),
     profileUrl() {
-      return `https://developer-forum.rokid.com/u/${this.username}/`
+      return `${DISCOURSE_BACKEND}/u/${this.username}/`
     },
   },
   methods: {
