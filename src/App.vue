@@ -55,6 +55,7 @@
 </template>
 
 <script>
+import { DISCOURSE_SSO_PROXY } from './const'
 import Sidebar from '@/components/Sidebar'
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import { mapActions, mapGetters } from 'vuex'
@@ -69,7 +70,7 @@ export default {
     return {
       isShowMobMenu: false,
       scrolled: false,
-      loginUrl: `https://developer-forum.rokid.com/session/sso?return_path=${location.href}`,
+      loginUrl: `${DISCOURSE_SSO_PROXY}/login`,
       query: null,
     }
   },
@@ -98,8 +99,8 @@ export default {
     }
   },
   mounted() {
-    this.$store.dispatch('fetchCsrfToken')
-    this.$store.dispatch('loadNotifications')
+    this.$store.dispatch('fetchSavedToken')
+    //this.$store.dispatch('loadNotifications')
   },
   beforeMount() {
     window.addEventListener('scroll', this.onscroll)

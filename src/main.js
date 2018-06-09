@@ -33,7 +33,7 @@ fontawesome.library.add(faSolid)
 moment.locale('zh-CN')
 
 var httpOpts = {
-  baseURL: 'https://developer-forum.rokid.com/',
+  baseURL: 'http://discourse.test/',
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
   },
@@ -43,27 +43,7 @@ var httpOpts = {
 
 Vue.config.productionTip = false
 
-function createHttp(opts) {
-  var _http = axios.create(opts)
-  _http.interceptors.response.use((response) => {
-    var username = response.headers['x-discourse-username']
-    if (username)
-      store.dispatch('login', { username })
-    return response
-  })
-  return _http
-}
-
-Vue.http = Vue.prototype.$http = createHttp(httpOpts)
-Vue.registerWithCsrfToken = function(token) {
-  Vue.http = Vue.prototype.$http = createHttp({
-    ...httpOpts,
-    headers: {
-      'X-Requested-With': 'XMLHttpRequest',
-      'X-CSRF-Token': token,
-    }
-  })
-}
+Vue.http = Vue.prototype.$http = axios.create(httpOpts)
 
 Vue.use(VueCookie)
 Vue.use(VueAffix)

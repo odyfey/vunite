@@ -1,0 +1,1 @@
+export const DISCOURSE_SSO_PROXY = 'http://localhost:5000/api/auth'
