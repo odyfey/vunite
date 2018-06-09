@@ -27,14 +27,14 @@ import '@/styles/editor.css'
 import App from './App'
 import router from './router'
 import store from './store'
-import { DISCOURSE_BACKEND } from './const'
+import { DISCOURSE_BACKEND_PROXY } from './const'
 
 fontawesome.library.add(faRegular)
 fontawesome.library.add(faSolid)
 moment.locale('zh-CN')
 
 var httpOpts = {
-  baseURL: DISCOURSE_BACKEND,
+  baseURL: DISCOURSE_BACKEND_PROXY,
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
   },
