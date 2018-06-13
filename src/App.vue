@@ -16,7 +16,7 @@
             <input ref="searchInput" 
               placeholder="搜索帖子、问答" v-model="query" @keyup="search" />
           </el-col>
-          <el-col :span="4" id="header-user-box">
+          <el-col :span="8" id="header-user-box">
             <router-link v-if="authorized" id="header-notification" class="hidden-xs-only" to="/notifications">
               <el-badge :is-dot="unreadNotifications.length > 0">
                 <fa-icon icon="bell" />
@@ -26,6 +26,7 @@
             <a id="header-login-btn" v-else :href="profileUrl">
               <fa-icon icon="user" />
             </a>
+            <a id="header-login-btn" v-if="authorized" @click="logout"><fa-icon icon="sign-out-alt" /></a>
           </el-col>
         </el-row>
       </div>
@@ -76,12 +77,13 @@ export default {
   },
   computed: {
     ...mapGetters(['authorized', 'username', 'unreadNotifications']),
+
     profileUrl() {
       return `${DISCOURSE_BACKEND}/u/${this.username}/`
     },
   },
   methods: {
-    ...mapActions(['login']),
+    ...mapActions(['login', 'logout']),
     onscroll() {
       this.scrolled = window.scrollY > 0
     },
@@ -99,7 +101,7 @@ export default {
     }
   },
   mounted() {
-    this.$store.dispatch('fetchSavedToken')
+    this.$store.dispatch('fetchStorage')
     //this.$store.dispatch('loadNotifications')
   },
   beforeMount() {

@@ -4,7 +4,7 @@ Based on [Rokid NextForum](https://github.com/Rokid/NextForum)
 
 Planned changes:
 
-* Authorization method: external sso => discourse sso provider
+* ~~Authorization method: external sso => discourse sso provider~~
 * Build project with help vue-cli 3
 * SSR
 * i18n support
