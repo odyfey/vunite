@@ -1,66 +1,63 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import store from '../store'
-
-import Home from '@/components/Home'
-import Category from '@/components/Category'
-import Topic from '@/components/Topic'
-import Notification from '@/components/Notification'
-import TagList from '@/components/TagList'
-import Search from '@/components/Search'
+import { createStore } from '@/store'
 
 Vue.use(Router)
 
-const router = new Router({
-    mode: 'history',
-    routes: [
-        {
-            path: '/',
-            name: 'Home',
-            component: Home,
-        },
-        {
-            path: '/category/:id/:subId?',
-            name: 'CategoryDetail',
-            component: Category,
-        },
-        {
-            path: '/topic/:id',
-            name: 'TopicDetail',
-            component: Topic,
-        },
-        {
-            path: '/notifications',
-            name: 'Notification',
-            component: Notification,
-        },
-        {
-            path: '/tags',
-            name: 'TagList',
-            component: TagList,
-        },
-        {
-            path: '/search',
-            name: 'Search',
-            component: Search,
-        }
-    ],
-})
+export function createRouter () {
+    const router = new Router({
+        mode: 'history',
+        routes: [
+            {
+                path: '/',
+                name: 'Home',
+                component: () => import('@/components/Home'),
+            },
+            {
+                path: '/category/:id/:subId?',
+                name: 'CategoryDetail',
+                component: () => import('@/components/Category'),
+            },
+            {
+                path: '/topic/:id',
+                name: 'TopicDetail',
+                component: () => import('@/components/Topic'),
+            },
+            {
+                path: '/notifications',
+                name: 'Notification',
+                component: () => import('@/components/Notification'),
+            },
+            {
+                path: '/tags',
+                name: 'TagList',
+                component: () => import('@/components/TagList'),
+            },
+            {
+                path: '/search',
+                name: 'Search',
+                component: () => import('@/components/Search'),
+            }
+        ],
+    })
 
-function hasQueryParams(route) {
-    return !!Object.keys(route.query).length
-}
-
-router.beforeEach((to, from, next) => {
-    if ( hasQueryParams(to) ) {
-        store.dispatch('fetchToken', to.query)
-        next({
-            path: '/'
-        })
+    function hasQueryParams(route) {
+        return !!Object.keys(route.query).length
     }
 
-    next()
-})
+    router.beforeEach((to, from, next) => {
+        if ( hasQueryParams(to) ) {
+            const store = createStore()
+            store.dispatch('fetchToken', to.query)
+            next({
+                path: '/'
+            })
+        }
 
-export default router
+        next()
+    })
+
+
+    return router
+}
