@@ -1,8 +1,4 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import 'babel-polyfill'
 import Vue from 'vue'
-import VueCookie from 'vue-cookie'
 import VueAffix from 'vue-affix'
 import VueScrollTo from 'vue-scrollto'
 import VueInfiniteScroll from 'vue-infinite-scroll'
@@ -46,7 +42,6 @@ Vue.config.productionTip = false
 
 Vue.http = Vue.prototype.$http = axios.create(httpOpts)
 
-Vue.use(VueCookie)
 Vue.use(VueAffix)
 Vue.use(VueScrollTo)
 Vue.use(VueInfiniteScroll)
@@ -60,10 +55,8 @@ new Vue({
   el: '#app',
   router,
   store,
-  components: { App },
-  template: '<App/>'
-})
-
+  render: h => h(App)
+}).$mount('#app')
 
 postCreditsScene();
 
