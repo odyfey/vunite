@@ -53,8 +53,12 @@ function hasQueryParams(route) {
 }
 
 router.beforeEach((to, from, next) => {
-    if ( hasQueryParams(to) )
+    if ( hasQueryParams(to) ) {
         store.dispatch('fetchToken', to.query)
+        next({
+            path: '/'
+        })
+    }
 
     next()
 })

@@ -33,7 +33,7 @@ var getters = {
 var actions = {
     async fetchUser({ commit }, username) {
         try {
-            const response = await Vue.http.get(`/users/${username}`)
+            const response = await Vue.http.get(`/users/${username}.json`)
 
             const user = response.data.users[0]
             const info = {

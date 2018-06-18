@@ -83,7 +83,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions(['login', 'logout']),
+    ...mapActions(['logout']),
     onscroll() {
       this.scrolled = window.scrollY > 0
     },
