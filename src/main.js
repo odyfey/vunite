@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueAffix from 'vue-affix'
 import VueScrollTo from 'vue-scrollto'
 import VueInfiniteScroll from 'vue-infinite-scroll'
-import * as VueCheckView from 'vue-check-view'
 import MavonEditor from 'mavon-editor'
 import * as ElementUI from 'element-ui'
 import popover from 'element-ui/packages/popover/src/directive'
@@ -45,7 +44,6 @@ Vue.http = Vue.prototype.$http = axios.create(httpOpts)
 Vue.use(VueAffix)
 Vue.use(VueScrollTo)
 Vue.use(VueInfiniteScroll)
-Vue.use(VueCheckView)
 Vue.use(MavonEditor)
 Vue.use(ElementUI)
 Vue.directive('popover', popover)
