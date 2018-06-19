@@ -22,6 +22,7 @@ import '@/styles/editor.css'
 import App from './App'
 import { createRouter } from './router'
 import { createStore } from './store'
+import { sync } from 'vuex-router-sync'
 import { DISCOURSE_BACKEND_PROXY } from './const'
 
 fontawesome.library.add(faRegular)
@@ -29,18 +30,7 @@ fontawesome.library.add(faSolid)
 moment.locale('zh-CN')
 
 export function createApp() {
-    var httpOpts = {
-        baseURL: DISCOURSE_BACKEND_PROXY,
-        headers: {
-            'X-Requested-With': 'XMLHttpRequest',
-        },
-        responseType: 'json',
-        withCredentials: true,
-    }
-
     Vue.config.productionTip = false
-
-    Vue.http = Vue.prototype.$http = axios.create(httpOpts)
 
     Vue.use(VueAffix)
     Vue.use(VueScrollTo)
@@ -54,9 +44,31 @@ export function createApp() {
 
     sync(store, router)
 
+    const httpOpts = {
+        baseURL: DISCOURSE_BACKEND_PROXY,
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+        },
+        responseType: 'json',
+        withCredentials: true,
+    }
+
+    let _http = axios.create(httpOpts)
+    _http.interceptors.request.use(request => {
+        const token = store.getters['token']
+
+        if (token)
+            request.headers.common['Authorization'] = `Bearer ${token}`
+        else
+            delete request.headers.common['Authorization']
+
+        return request
+    })
+
+    Vue.http = Vue.prototype.$http = _http
+
     /* eslint-disable no-new */
     const app = new Vue({
-        el: '#app',
         router,
         store,
         render: h => h(App)

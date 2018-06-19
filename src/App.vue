@@ -62,56 +62,68 @@ import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: 'App',
-  components: {
-    Sidebar,
-    'fa-icon': FontAwesomeIcon,
-  },
-  data() {
-    return {
-      isShowMobMenu: false,
-      scrolled: false,
-      loginUrl: `${DISCOURSE_SSO_PROXY}/login`,
-      query: null,
-    }
-  },
-  computed: {
-    ...mapGetters(['authorized', 'username', 'unreadNotifications']),
+    name: 'App',
 
-    profileUrl() {
-      return `${DISCOURSE_BACKEND}/u/${this.username}/`
+    components: {
+        Sidebar,
+        'fa-icon': FontAwesomeIcon,
     },
-  },
-  methods: {
-    ...mapActions(['logout']),
-    onscroll() {
-      this.scrolled = window.scrollY > 0
+
+    data() {
+        return {
+            isShowMobMenu: false,
+            scrolled: false,
+            loginUrl: `${DISCOURSE_SSO_PROXY}/login`,
+            query: null,
+        }
     },
-    search(event) {
-      if (event.keyCode === 13) {
-        this.$router.push({
-          path: `/search?q=${this.query}`,
-        })
-        this.query = null
-        this.$refs.searchInput.blur()
-      }
+
+    computed: {
+        ...mapGetters(['authorized', 'username', 'unreadNotifications']),
+
+        profileUrl() {
+            return `${DISCOURSE_BACKEND}/u/${this.username}/`
+        },
     },
-    toggleShowMobMenu() {
-      this.isShowMobMenu = !this.isShowMobMenu;
-    }
-  },
-  mounted() {
-    this.$store.dispatch('fetchStorage')
-    //this.$store.dispatch('loadNotifications')
-  },
-  beforeMount() {
-    window.addEventListener('scroll', this.onscroll)
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.onscroll)
-  },
+
+    methods: {
+        ...mapActions(['logout']),
+
+        onscroll() {
+            this.scrolled = window.scrollY > 0
+        },
+
+        search(event) {
+            if (event.keyCode === 13) {
+                this.$router.push({
+                    path: `/search?q=${this.query}`,
+                })
+
+                this.query = null
+                this.$refs.searchInput.blur()
+            }
+        },
+
+        toggleShowMobMenu() {
+            this.isShowMobMenu = !this.isShowMobMenu;
+        }
+
+    },
+
+    mounted() {
+        //this.$store.dispatch('loadNotifications')
+    },
+
+    beforeMount() {
+        window.addEventListener('scroll', this.onscroll)
+    },
+
+    beforeDestroy() {
+        window.removeEventListener('scroll', this.onscroll)
+    },
 }
 </script>
+
 <style>
 /**
   overwrite for elementUI

@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { DISCOURSE_SSO_PROXY } from '../../const'
+import { DISCOURSE_SSO_PROXY } from '@/const'
 
 const TOKEN_STORAGE = 'discourse_token'
 const USERINFO_STORAGE = 'user_info'
@@ -25,6 +25,8 @@ var mutations = {
 }
 
 var getters = {
+    token: state => state.token,
+
     authorized: state => !!state.token,
 
     username: state => state.userInfo.name,
@@ -56,10 +58,9 @@ var actions = {
                 responseType: 'text'
             })
 
-            const token = `Bearer ${response.data.token}`
+            const token = response.data.token
             commit('setToken', token)
             localStorage.setItem(TOKEN_STORAGE, token)
-            Vue.http.defaults.headers.common['Authorization'] = token
 
             dispatch('fetchUser', response.data.username)
         }
@@ -76,13 +77,7 @@ var actions = {
         commit('logout')
         localStorage.removeItem(TOKEN_STORAGE)
         localStorage.removeItem(USERINFO_STORAGE)
-        delete Vue.http.defaults.headers.common['Authorization']
-    },
-
-    fetchStorage({ commit, state }) {
-        if (state.token)
-            Vue.http.defaults.headers.common['Authorization'] = state.token
-    },
+    }
 }
 
 export default {
