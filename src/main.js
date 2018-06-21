@@ -1,10 +1,8 @@
 import Vue from 'vue'
 import VueAffix from 'vue-affix'
 import VueScrollTo from 'vue-scrollto'
-import VueInfiniteScroll from 'vue-infinite-scroll'
 import MavonEditor from 'mavon-editor'
 import * as ElementUI from 'element-ui'
-import popover from 'element-ui/packages/popover/src/directive'
 
 import axios from 'axios'
 import moment from 'moment'
@@ -34,10 +32,8 @@ export function createApp() {
 
     Vue.use(VueAffix)
     Vue.use(VueScrollTo)
-    Vue.use(VueInfiniteScroll)
     Vue.use(MavonEditor)
     Vue.use(ElementUI)
-    Vue.directive('popover', popover)
 
     const router = createRouter()
     const store = createStore()

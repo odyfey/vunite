@@ -1,4 +1,12 @@
+import Vue from 'vue'
+import VueInfiniteScroll from 'vue-infinite-scroll'
+
+import popover from 'element-ui/packages/popover/src/directive'
+
 import { createApp } from './main'
+
+Vue.use(VueInfiniteScroll)
+Vue.directive('popover', popover)
 
 const { app, router, store } = createApp()
 

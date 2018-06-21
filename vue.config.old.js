@@ -42,6 +42,12 @@ module.exports = {
                 merge(options, {
                     optimizeSSR: false
                 })
-            )
+            ),
+            
+        config.plugins
+            .delete('split-vendor')
+            .delete('split-vendor-async')
+            .delete('split-manifest')
+            .delete('inline-manifest')
     }
 }
