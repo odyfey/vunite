@@ -33,49 +33,51 @@
     <nav id="sidebar" class="hidden-xs-only">
 
       <!-- the main sidebar items -->
-      <affix relative-element-selector="#app-main" :offset="{ top: 50, bottom: 30 }" style="width:190px">
-        <ul>
-          <li class="new-discussion">
-            <el-button @click="newDiscussionDialogVisible = true">新建讨论</el-button>
-          </li>
-          <li class="text-button all-discussion" :class="isActive('all') ? 'active' : ''">
-            <router-link to="/category/all">
-              <fa-icon :icon="['far', 'comments']" class="icon" />
-              <span>所有讨论</span>
-            </router-link>
-          </li>
-          <li class="text-button tags" :class="isActive('tags') ? 'active' : ''">
-            <router-link to="/tags">
-              <fa-icon icon="th-large" class="icon" />
-              <span>标签</span>
-            </router-link>
-          </li>
-          <li class="text-button" :class="isActive('activity') ? 'active' : ''">
-            <router-link to="/category/activity">
-              <fa-icon icon="dove" class="icon" />
-              <span>活动</span>
-            </router-link>
-          </li>
-          <li class="separator"></li>
-          <li class="text-button" 
-            :class="isActive(item) ? 'active': ''" 
-            v-for="item in allCategories">
-            <router-link :to="`/category/${categoryName(item)}`" :title="item.description">
-              <i class="color-icon icon" :style="`background:#${item.color}`" />
-              <span>{{item.name}}</span>
-            </router-link>
-            <ul class="sub-categories" v-if="isActive(item)">
-              <li v-for="subItem in subCategories"
-                class="text-button"
-                :class="isSubActive(subItem) ? 'active' : ''">
-                <router-link :to="`/category/${categoryName(item)}/${categoryName(subItem)}`">
-                  <span>{{subItem.name}}</span>
-                </router-link>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </affix>
+      <no-ssr>
+        <affix relative-element-selector="#app-main" :offset="{ top: 50, bottom: 30 }" style="width:190px">
+          <ul>
+            <li class="new-discussion">
+              <el-button @click="newDiscussionDialogVisible = true">新建讨论</el-button>
+            </li>
+            <li class="text-button all-discussion" :class="isActive('all') ? 'active' : ''">
+              <router-link to="/category/all">
+                <fa-icon :icon="['far', 'comments']" class="icon" />
+                <span>所有讨论</span>
+              </router-link>
+            </li>
+            <li class="text-button tags" :class="isActive('tags') ? 'active' : ''">
+              <router-link to="/tags">
+                <fa-icon icon="th-large" class="icon" />
+                <span>标签</span>
+              </router-link>
+            </li>
+            <li class="text-button" :class="isActive('activity') ? 'active' : ''">
+              <router-link to="/category/activity">
+                <fa-icon icon="dove" class="icon" />
+                <span>活动</span>
+              </router-link>
+            </li>
+            <li class="separator"></li>
+            <li class="text-button" 
+              :class="isActive(item) ? 'active': ''" 
+              v-for="item in allCategories">
+              <router-link :to="`/category/${categoryName(item)}`" :title="item.description">
+                <i class="color-icon icon" :style="`background:#${item.color}`" />
+                <span>{{item.name}}</span>
+              </router-link>
+              <ul class="sub-categories" v-if="isActive(item)">
+                <li v-for="subItem in subCategories"
+                  class="text-button"
+                  :class="isSubActive(subItem) ? 'active' : ''">
+                  <router-link :to="`/category/${categoryName(item)}/${categoryName(subItem)}`">
+                    <span>{{subItem.name}}</span>
+                  </router-link>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </affix>
+      </no-ssr>
     </nav>
 
     <div class="mob-sidebar-bg-cover" :class="{ dn: !showMobMenu }">
@@ -138,15 +140,17 @@
 </template>
 
 <script>
-import FontAwesomeIcon from "@fortawesome/vue-fontawesome";
-import { mapGetters, mapActions } from "vuex";
-import NewDiscussion from "./NewDiscussion";
+import NoSSR from 'vue-no-ssr'
+import FontAwesomeIcon from "@fortawesome/vue-fontawesome"
+import { mapGetters, mapActions } from "vuex"
+import NewDiscussion from "./NewDiscussion"
 
 export default {
   name: "Sidebar",
   components: {
+    'no-ssr': NoSSR,
+    'fa-icon': FontAwesomeIcon,
     NewDiscussion,
-    "fa-icon": FontAwesomeIcon
   },
   props: {
     showMobMenu: {

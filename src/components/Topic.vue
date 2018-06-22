@@ -123,9 +123,9 @@ import { DISCOURSE_BACKEND } from '../const'
 export default {
   name: 'Topic',
   components: {
+    'fa-icon': FontAwesomeIcon,
     EditDiscussion,
     editor: MyEditor,
-    'fa-icon': FontAwesomeIcon,
   },
   data () {
     return {

@@ -26,6 +26,7 @@
     "vue": "^2.5.16",
     "vue-affix": "^0.2.4",
     "vue-infinite-scroll": "^2.0.2",
+    "vue-no-ssr": "^0.2.2",
     "vue-router": "^3.0.1",
     "vue-scrollto": "^2.11.0",
     "vue-server-renderer": "^2.5.16",
