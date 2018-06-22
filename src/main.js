@@ -27,7 +27,7 @@ fontawesome.library.add(faRegular)
 fontawesome.library.add(faSolid)
 moment.locale('zh-CN')
 
-export function createApp() {
+export function createApp({ isClient }) {
     Vue.config.productionTip = false
 
     Vue.use(VueAffix)
@@ -35,8 +35,8 @@ export function createApp() {
     Vue.use(MavonEditor)
     Vue.use(ElementUI)
 
-    const router = createRouter()
     const store = createStore()
+    const router = createRouter(store, isClient)
 
     sync(store, router)
 

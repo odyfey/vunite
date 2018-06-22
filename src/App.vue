@@ -56,10 +56,10 @@
 </template>
 
 <script>
-import {  DISCOURSE_BACKEND, DISCOURSE_SSO_PROXY } from './const'
+import {  DISCOURSE_BACKEND, DISCOURSE_SSO_PROXY, TOKEN_STORAGE, USERINFO_STORAGE } from './const'
 import Sidebar from '@/components/Sidebar'
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
     name: 'App',
@@ -79,7 +79,11 @@ export default {
     },
 
     computed: {
-        ...mapGetters(['authorized', 'username', 'unreadNotifications']),
+        ...mapGetters({
+            authorized: 'User/authorized',
+            username: 'User/username',
+            unreadNotifications: 'Notification/unreadNotifications'
+        }),
 
         profileUrl() {
             return `${DISCOURSE_BACKEND}/u/${this.username}/`
@@ -87,7 +91,23 @@ export default {
     },
 
     methods: {
-        ...mapActions(['logout']),
+        ...mapMutations({
+            setToken: 'User/setToken',
+            setUserInfo: 'User/setUserInfo',
+            clear: 'User/clear'
+        }),
+
+        fetchLocalStorage() {
+            this.setToken( localStorage.getItem(TOKEN_STORAGE) )
+            this.setUserInfo( JSON.parse( localStorage.getItem(USERINFO_STORAGE) ) )
+        },
+
+        logout() {
+            localStorage.removeItem(TOKEN_STORAGE)
+            localStorage.removeItem(USERINFO_STORAGE)
+
+            this.clear()
+        },
 
         onscroll() {
             this.scrolled = window.scrollY > 0
@@ -111,6 +131,7 @@ export default {
     },
 
     mounted() {
+        this.fetchLocalStorage()
         //this.$store.dispatch('loadNotifications')
     },
 

@@ -1,11 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import { createStore } from '@/store'
-
 Vue.use(Router)
 
-export function createRouter () {
+export function createRouter(store, isClient) {
     const router = new Router({
         mode: 'history',
         routes: [
@@ -42,22 +40,22 @@ export function createRouter () {
         ],
     })
 
-    function hasQueryParams(route) {
-        return !!Object.keys(route.query).length
-    }
-
-    router.beforeEach((to, from, next) => {
-        if ( hasQueryParams(to) ) {
-            const store = createStore()
-            store.dispatch('fetchToken', to.query)
-            next({
-                path: '/'
-            })
+    if (isClient) {
+        function hasQueryParams(route) {
+            return !!Object.keys(route.query).length
         }
-
-        next()
-    })
-
+        
+        router.beforeEach((to, from, next) => {
+            if ( hasQueryParams(to) ) {
+                store.dispatch('User/fetchToken', to.query)
+                next({
+                    path: '/'
+                })
+            } else {
+                next()
+            }
+        })
+    }
 
     return router
 }

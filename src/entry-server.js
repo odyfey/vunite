@@ -2,7 +2,7 @@ import { createApp } from './main'
 
 export default context => {
     return new Promise((resolve, reject) => {
-        const { app, router, store } = createApp()
+        const { app, router, store } = createApp({isClient: false})
 
         router.push(context.url)
 

@@ -1,38 +1,38 @@
 import Vue from 'vue'
-import { DISCOURSE_SSO_PROXY } from '@/const'
+import { DISCOURSE_SSO_PROXY, TOKEN_STORAGE, USERINFO_STORAGE } from '@/const'
 
-const TOKEN_STORAGE = 'discourse_token'
-const USERINFO_STORAGE = 'user_info'
+const namespaced = true
 
 const state = {
-    token: localStorage.getItem(TOKEN_STORAGE) || '',
-    userInfo: JSON.parse( localStorage.getItem(USERINFO_STORAGE) ) || {},
+    token: '',
+    userInfo: {},
     error: ''
 }
 
-var mutations = {
+const getters = {
+    token: state => state.token,
+
+    authorized: state => !!state.token,
+
+    username: state => ( state.userInfo ? state.userInfo.name : '' ),
+}
+
+const mutations = {
     setToken: (state, token) => state.token = token,
 
     // info: { id, name }
     setUserInfo: (state, info) => state.userInfo = info,
 
-    logout(state) {
+    setError: (state, error) => state.error = error,
+
+    clear(state) {
         state.token = ''
         state.userInfo = {}
+        state.error = ''
     },
-
-    setError: (state, error) => state.error = error
 }
 
-var getters = {
-    token: state => state.token,
-
-    authorized: state => !!state.token,
-
-    username: state => state.userInfo.name,
-}
-
-var actions = {
+const actions = {
     async fetchUser({ commit }, username) {
         try {
             const response = await Vue.http.get(`/users/${username}.json`)
@@ -68,21 +68,13 @@ var actions = {
             commit('setError', error.data)
             localStorage.removeItem(TOKEN_STORAGE)
         }
-    },
-
-    logout({ commit, state }) {
-        //requires admin api key: https://meta.discourse.org/t/discourse-sso-logout/28509/21
-        //Vue.http.post(`/admin/users/${state.userInfo.id}/log_out`)
-
-        commit('logout')
-        localStorage.removeItem(TOKEN_STORAGE)
-        localStorage.removeItem(USERINFO_STORAGE)
     }
 }
 
 export default {
-  state,
-  mutations,
-  getters,
-  actions,
-};
+    namespaced,
+    state,
+    getters,
+    mutations,
+    actions,
+}

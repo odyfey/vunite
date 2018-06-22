@@ -160,9 +160,9 @@ export default {
         return post;
       });
     },
-    ...mapGetters([
-      'username',
-    ]),
+    ...mapGetters({
+      username: 'User/username',
+    }),
   },
   methods: {
     // 盘古开天辟地，把文字劈开。search pangu on github for more info

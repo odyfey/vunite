@@ -8,7 +8,7 @@ import { createApp } from './main'
 Vue.use(VueInfiniteScroll)
 Vue.directive('popover', popover)
 
-const { app, router, store } = createApp()
+const { app, router, store } = createApp({isClient: true})
 
 if (window.__INITIAL_STATE__) {
     store.replaceState(window.__INITIAL_STATE__)
@@ -40,7 +40,7 @@ router.onReady(() => {
     
             next()
         }).catch(next)
-      })
+    })
 
     app.$mount('#app')
 })
