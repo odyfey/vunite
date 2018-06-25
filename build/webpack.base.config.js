@@ -54,8 +54,7 @@ module.exports = {
         include: [
           resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client'),
           resolve('node_modules/element-ui/packages/popover/src/directive.js')
-        ],
-        exclude: /node_modules/
+        ]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -91,7 +90,10 @@ module.exports = {
     ? [
         new VueLoaderPlugin(),
         new webpack.optimize.UglifyJsPlugin({
-          compress: { warnings: false }
+          sourceMap: true,
+          uglifyOptions: {
+            compress: { warnings: false }
+          },
         }),
         new webpack.optimize.ModuleConcatenationPlugin(),
         new ExtractTextPlugin({

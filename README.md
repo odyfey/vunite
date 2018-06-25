@@ -6,7 +6,7 @@ Planned changes:
 
 * ~~Authorization method: external sso => discourse sso provider~~
 * ~~Build project with help vue-cli 3~~
-* SSR
+* ~~SSR~~
 * i18n support
 * Home: flat topic structure
 * Topic view: fetch and parse raw post instead cooked

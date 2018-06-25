@@ -8,6 +8,21 @@ import { createApp } from './main'
 Vue.use(VueInfiniteScroll)
 Vue.directive('popover', popover)
 
+Vue.mixin({
+    beforeRouteUpdate (to, from, next) {
+        const { asyncData } = this.$options
+        if (asyncData) {
+            asyncData({
+                store: this.$store,
+                route: to
+            }).
+            then(next).catch(next)
+        } else {
+            next()
+        }
+    }
+})
+
 const { app, router, store } = createApp({isClient: true})
 
 if (window.__INITIAL_STATE__) {
