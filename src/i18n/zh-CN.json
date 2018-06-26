@@ -1,0 +1,8 @@
+{
+    "app": {
+        "home": "首页",
+        "search": "搜索帖子",
+        "login": "登录",
+        "powered": "由vunite提供支持"
+    }
+}

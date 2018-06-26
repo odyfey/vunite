@@ -20,12 +20,14 @@ import '@/styles/editor.css'
 import App from './App'
 import { createRouter } from './router'
 import { createStore } from './store'
+import { createI18n } from './i18n'
 import { sync } from 'vuex-router-sync'
+import { locale } from './config'
 import { DISCOURSE_BACKEND_PROXY } from './const'
 
 fontawesome.library.add(faRegular)
 fontawesome.library.add(faSolid)
-moment.locale('zh-CN')
+moment.locale(locale)
 
 export function createApp({ isClient }) {
     Vue.config.productionTip = false
@@ -37,6 +39,7 @@ export function createApp({ isClient }) {
 
     const store = createStore()
     const router = createRouter(store, isClient)
+    const i18n = createI18n()
 
     sync(store, router)
 
@@ -67,6 +70,7 @@ export function createApp({ isClient }) {
     const app = new Vue({
         router,
         store,
+        i18n,
         render: h => h(App)
     })
 

@@ -1,20 +1,16 @@
 <template>
   <div id="app">
-    <a class="github-link" href="https://github.com/Rokid/NextForum"><img style="position: fixed; z-index: 1400; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
     <header id="app-header" :class="scrolled ? 'layup' : ''">
       <div class="inner">
         <fa-icon icon="bars" @click="toggleShowMobMenu" class="mob-menu"></fa-icon>
         <router-link to="/" id="header-logo"></router-link>
         <ul id="header-index">
-          <li><router-link to="/">首页</router-link></li>
-          <li><router-link to="/topic/1983">新手指南</router-link></li>
-          <li><router-link to="/category/faq">FAQ</router-link></li>
+          <li><router-link to="/">{{ $t('app.home') }}</router-link></li>
         </ul>
         <el-row id="header-controls" type="flex" justify="end">
           <el-col :span="20" id="header-search-box">
             <fa-icon icon="search" />
-            <input ref="searchInput" 
-              placeholder="搜索帖子、问答" v-model="query" @keyup="search" />
+            <input ref="searchInput" :placeholder="$t('app.search')" v-model="query" @keyup="search" />
           </el-col>
           <el-col :span="8" id="header-user-box">
             <router-link v-if="authorized" id="header-notification" class="hidden-xs-only" to="/notifications">
@@ -22,7 +18,7 @@
                 <fa-icon icon="bell" />
               </el-badge>
             </router-link>
-            <a id="header-login-btn" :href="loginUrl" v-if="!authorized">登录</a>
+            <a id="header-login-btn" :href="loginUrl" v-if="!authorized">{{ $t('app.login') }}</a>
             <a id="header-login-btn" v-else :href="profileUrl">
               <fa-icon icon="user" />
             </a>
@@ -44,11 +40,7 @@
       <div class="inner">
         <img src="https://developer.rokid.com/static/img/logo-developer-bottom.5c6d18f.png" />
         <ul>
-          <li><a target="_blank" href="https://developer.rokid.com/docs">文档中心</a></li>
-          <li><a target="_blank" href="https://developer.rokid.com">开发者中心</a></li>
-          <li><a target="_blank" href="https://github.com/Rokid">GitHub</a></li>
-          <li><a target="_blank" href="https://www.rokid.com/smarthome/">智能家居</a></li>
-          <li><a target="_blank" href="https://www.rokid.com">若琪官网</a></li>
+          <li><a target="_blank" href="https://github.com/zullin/vunite">{{ $t('app.powered') }}</a></li>
         </ul>
       </div>
     </div>
@@ -349,9 +341,6 @@ export default {
 }
 
 @media only screen and (max-width: 767px) {
-  .github-link {
-    display: none;
-  }
   #header-logo {
     display: none;
   }
