@@ -1,8 +1,58 @@
 {
     "app": {
-        "home": "Главная",
         "search": "Поиск...",
         "login": "Войти",
         "powered": "Работает на vunite"
+    },
+
+    "route": {
+        "home": "Главная",
+        "categories": "Все темы",
+        "tags": "Тэги",
+        "activity": "Активность"
+    },
+
+    "sidebar": {
+        "send": "Отправить",
+        "cancel": "Отмена"
+    },
+
+    "discussion": {
+        "new": "Новая тема",
+        "name": "Тема",
+        "namePlaceholder": "Введите название темы",
+        "category": "Категория",
+        "tag": "Тэг (необязателен)",
+        "tagPlaceholder": "Выберете один или несколько тегов"
+    },
+
+    "editor": {
+        "enterMessage": "Введите текст сообщения...",
+        "uploadFile": "Загрузить файл"
+    },
+
+    "emoji": {
+        "title": "Смайл",
+        "rendering": "Загрузка смайлов...",
+        "recent": "Последние используемые",
+        "people": "Люди",
+        "nature": "Природа",
+        "foods": "Еда",
+        "activity": "Активность",
+        "places": "Места",
+        "objects": "Объекты",
+        "symbols": "Символы",
+        "flags": "Флаги"
+    },
+
+    "error": {
+        "title": "Ошибка",
+        "discussionNameEmpty": "название темы не может быть пустым",
+        "categoryNotSelected": "Необходимо выбрать категорию",
+        "contentsEmpty": "Содержимое темы не может быть пустым",
+        "fileExtensionNotResolved": "Расширение файла не соответствует допустимым: jpg, jpeg, png, gif, tgz, zip, rar, json, so, pdf",
+        "uploadFile": "Загрузка файла не удалась",
+        "fileIsTooLarge": "Загружаемый файл слишком большой",
+        "serverIsBusy": "Сервер не отвечает, повторите попытку позже"
     }
 }

@@ -1,13 +1,13 @@
 <template>
   <el-form size="small" :label-position="labelPosition">
-    <el-form-item label="主题" :label-width="labelWidth">
-      <el-input class="input-body" placeholder="输入讨论的主题"
+    <el-form-item :label="$t('discussion.name')" :label-width="labelWidth">
+      <el-input class="input-body" :placeholder="$t('discussion.namePlaceholder')"
         v-model="data.topic"
         :rules="[
-          { required: true, message: '主题不能为空', }
+          { required: true, message: $t('error.discussionNameEmpty'), }
         ]"></el-input>
     </el-form-item>
-    <el-form-item label="分类" :label-width="labelWidth">
+    <el-form-item :label="$t('discussion.category')" :label-width="labelWidth">
       <el-cascader
         class="input-body"
         :options="categories"
@@ -15,13 +15,13 @@
         v-model="data.category">
       </el-cascader>
     </el-form-item>
-    <el-form-item label="标签（可选）" :label-width="labelWidth">
+    <el-form-item :label="$t('discussion.tag')" :label-width="labelWidth">
       <el-select
         class="input-body"
         multiple
         filterable
         v-model="data.tags"
-        placeholder="请选择讨论的标签，可多选">
+        :placeholder="$t('discussion.tagPlaceholder')">
         <el-option
           v-for="tag in tags"
           :key="tag" :label="tag" :value="tag">

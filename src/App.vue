@@ -5,7 +5,7 @@
         <fa-icon icon="bars" @click="toggleShowMobMenu" class="mob-menu"></fa-icon>
         <router-link to="/" id="header-logo"></router-link>
         <ul id="header-index">
-          <li><router-link to="/">{{ $t('app.home') }}</router-link></li>
+          <li><router-link to="/">{{ $t('route.home') }}</router-link></li>
         </ul>
         <el-row id="header-controls" type="flex" justify="end">
           <el-col :span="20" id="header-search-box">

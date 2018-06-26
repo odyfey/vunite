@@ -4,9 +4,12 @@
       ref="editor"
       @change="change"
       :value="initialValue"
+      language="en"
       :subfield="false" 
+      :placeholder="$t('editor.enterMessage')"
       :toolbars="editorToolbar"
-      @imgAdd="addImage" />
+      @imgAdd="addImage"
+    />
     <!-- extend toolbar -->
     <el-popover
       v-if="!isMobile()"
@@ -15,7 +18,7 @@
       trigger="hover"
       @after-enter="renderEmoji">
       <div>
-        <p v-if="rendering">正在加载 Emoji 表情...</p>
+        <p v-if="rendering">{{ $t('emoji.rendering') }}</p>
         <emoji-picker
           v-if="true"
           @select="pickEmoji"
@@ -28,9 +31,9 @@
           :showSearch="false"
           :showSkinTones="false"
           :showCategories="false"
-          :i18n="emojiCN" />
+          :i18n="emojiTranslated" />
       </div>
-      <button slot="reference" ref="emoji" type="button" class="op-icon" title="表情">
+      <button slot="reference" ref="emoji" type="button" class="op-icon" :title="$t('emoji.title')">
         <fa-icon icon="smile"></fa-icon>
       </button>
     </el-popover>
@@ -44,18 +47,18 @@
       :on-error="onUploadFileError"
       action="/uploads.json">
       <span slot="trigger" style="display: none" ref="upload"></span>
-      <button @click="triggerupload" ref="uploadFile" type="button" class="op-icon proxy-upload-trigger" title="添加附件">
+      <button @click="triggerupload" ref="uploadFile" type="button" class="op-icon proxy-upload-trigger" :title="$t('editor.uploadFile')">
         <fa-icon icon="cloud-upload-alt"></fa-icon>
       </button>
     </el-upload>
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
 import { mapGetters } from 'vuex'
 import { Picker } from 'emoji-mart-vue'
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
-import { DISCOURSE_BACKEND } from '../const'
+import { DISCOURSE_BACKEND } from '@/const'
 
 export default {
   name: 'NewDiscussion',
@@ -70,17 +73,17 @@ export default {
     return {
       emojiVisible: false,
       rendering: true,
-      emojiCN: {
+      emojiTranslated: {
         categories: {
-          recent: '最新使用',
-          people: '人物',
-          nature: '自然',
-          foods: '食物',
-          activity: '运动',
-          places: '景色',
-          objects: '物品',
-          symbols: '标志',
-          flags: '旗帜',
+          recent: this.$t('emoji.recent'),
+          people: this.$t('emoji.people'),
+          nature: this.$t('emoji.nature'),
+          foods: this.$t('emoji.foods'),
+          activity: this.$t('emoji.activity'),
+          places: this.$t('emoji.places'),
+          objects: this.$t('emoji.objects'),
+          symbols: this.$t('emoji.symbols'),
+          flags: this.$t('emoji.flags'),
         }
       },
       emojiConf: {
@@ -170,12 +173,12 @@ export default {
     onUploadFileError(error) {
       try {
         if (error.response.data.errors.length > 0) {
-          this.$alert('文件类型不被允许（允许的文件类型有：jpg, jpeg, png, gif, tgz, zip, rar, json, so, pdf）', '错误')
+          this.$alert(this.$t('error.fileExtensionNotResolved'), this.$t('error.title'))
         } else {
-          this.$alert('上传文件错误', '错误')
+          this.$alert(this.$t('error.uploadFile'), this.$t('error.title'))
         }
       } catch (error) {
-        this.$alert('上传的文件太大', '错误')
+        this.$alert(this.$t('error.fileIsTooLarge'), this.$t('error.title'))
       }
     },
     triggerupload(event){
