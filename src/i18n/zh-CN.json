@@ -12,9 +12,15 @@
         "activity": "活动"
     },
 
-    "sidebar": {
+    "action": {
+        "cancel": "取消",
         "send": "发送",
-        "cancel": "取消"
+        "save": "保 存",
+        "reply": "回复",
+        "editPost": "编辑",
+        "toBookmarks": "收藏",
+        "share": "分享链接",
+        "copyLink": "复制链接"
     },
 
     "discussion": {
@@ -24,6 +30,10 @@
         "category": "分类",
         "tag": "标签（可选）",
         "tagPlaceholder": "请选择讨论的标签，可多选"
+    },
+
+    "topic": {
+        "edit": "修改主题"
     },
 
     "editor": {
@@ -45,14 +55,24 @@
         "flags": "旗帜"
     },
 
+    "success": {
+        "discussionTitle": "标题修改成功",
+        "edited": "修改成功"
+    },
+
+    "warning": {
+        "alreadyLiked": "你已经赞过了"
+    },
+
     "error": {
         "title": "错误",
-        "discussionNameEmpty": "主题不可为空",
+        "discussionTitleEmpty": "主题不可为空",
         "categoryNotSelected": "必须选择分类",
         "contentsEmpty": "内容不可为空",
         "fileExtensionNotResolved": "文件类型不被允许（允许的文件类型有：jpg, jpeg, png, gif, tgz, zip, rar, json, so, pdf）",
         "uploadFile": "上传文件错误",
         "fileIsTooLarge": "上传的文件太大",
-        "serverIsBusy": "服务器正忙，请稍后再试"
+        "serverIsBusy": "服务器正忙，请稍后再试",
+        "unknown": "啊哦😰！未知错误，你可以给我们反馈"
     }
 }

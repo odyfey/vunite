@@ -1,15 +1,15 @@
 <template>
   <div class="container">
     <el-dialog width="50%"
-      :title="`修改主题：${title}`"
+      :title="`${$t('topic.edit')}：${title}`"
       :visible.sync="editPostDialogVisible">
       <edit-discussion 
         ref="editDiscussion"
         :topic="rawTopic"
         :post="editingPost" />
       <span slot="footer" class="dialog-footer">
-        <el-button @click="editPostDialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="savePost">保 存</el-button>
+        <el-button @click="editPostDialogVisible = false">{{ $t('action.cancel') }}</el-button>
+        <el-button type="primary" @click="savePost">{{ $t('action.save') }}</el-button>
       </span>
     </el-dialog>
 
@@ -46,20 +46,20 @@
                 <fa-icon :icon="['far', 'thumbs-up']"></fa-icon>
                 <span>{{item.likes}}</span>
               </a>
-              <a class="replies" title="回复" @click="replyWith(item)">
+              <a class="replies" :title="$t('action.reply')" @click="replyWith(item)">
                 <fa-icon icon="reply"></fa-icon>
                 <span>{{item.reply_count}}</span>
               </a>
               <div class="post-summary-right-controls">
-                <a title="编辑" v-if="item.can_edit" @click="editPost(item)">
+                <a :title="$t('action.editPost')" v-if="item.can_edit" @click="editPost(item)">
                   <fa-icon icon="pencil-alt"></fa-icon>
-                  <span>编辑</span>
+                  <span>{{ $t('action.editPost') }}</span>
                 </a>
-                <a title="收藏" class="bookmark"
+                <a :title="$t('action.toBookmarks')" class="bookmark"
                   :class="item.bookmarked ? 'bookmarked' : ''"
                   @click="toggleBookmark(item)">
                   <fa-icon :icon="['far', 'bookmark']"></fa-icon>
-                  <span>收藏</span>
+                  <span>{{ $t('action.toBookmarks') }}</span>
                 </a>
                 <el-popover
                   :ref="`share-popover${index}`"
@@ -67,16 +67,18 @@
                   width="300"
                   trigger="click">
                   <span slot="reference">
-                    <a class="share" title="分享链接">
+                    <a class="share" :title="$t('action.share')">
                       <fa-icon icon="link"></fa-icon>
-                      <span>分享</span>
+                      <span>{{ $t('action.share') }}</span>
                     </a>
                   </span>
-                  <template>
-                    <el-input size="small" autofocus
-                      :value="`https://forum.rokid.com/topic/${item.id}?u=${username}#${index + 1}`" />
-                    <el-button type="primary" size="small" class="share-popover-copybtn">复制链接</el-button>
-                  </template>
+                  <no-ssr>
+                    <template>
+                      <el-input size="small" autofocus
+                        :value="`${window.location.origin}/topic/${item.id}?u=${username}#${index + 1}`" />
+                      <el-button type="primary" size="small" class="share-popover-copybtn">{{ $t('action.copyLink') }}</el-button>
+                    </template>
+                  </no-ssr>
                 </el-popover>
               </div>
             </div>
@@ -96,9 +98,9 @@
           :initialValue="contents" />
         <div class="reply-footer">
           <el-button type="primary" size="small" @click="sendReply()">
-            <fa-icon icon="reply" /> 发送
+            <fa-icon icon="reply" /> {{ $t('action.reply') }}
           </el-button>
-          <el-button size="small">取消</el-button>
+          <el-button size="small">{{ $t('action.cancel') }}</el-button>
         </div>
       </div>
     </div>
@@ -114,6 +116,7 @@
 <script>
 import moment from 'moment'
 import pangu from 'pangu'
+import NoSSR from 'vue-no-ssr'
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import { mapGetters } from 'vuex'
 import EditDiscussion from './EditDiscussion'
@@ -123,6 +126,7 @@ import { DISCOURSE_BACKEND } from '../const'
 export default {
   name: 'Topic',
   components: {
+    'no-ssr': NoSSR,
     'fa-icon': FontAwesomeIcon,
     EditDiscussion,
     editor: MyEditor,
@@ -184,7 +188,7 @@ export default {
       this.titleEditable = false
       var title = this.$refs.title.innerText
       if (!title) {
-        this.$message({ type: 'error', message: '标题不能为空' })
+        this.$message({ type: 'error', message: this.$t('error.discussionTitleEmpty') })
         this.$refs.title.innerText = this.title
         return
       }
@@ -194,7 +198,7 @@ export default {
       }
       var { data } = await this.$http.put(`/t/topic/${this.rawTopic.id}`, { title })
       this.title = title
-      this.$message({ type: 'success', message: '标题修改成功' })
+      this.$message({ type: 'success', message: this.$t('success.discussionTitle') })
     },
     editPost(item) {
       this.editingPost = item
@@ -206,11 +210,11 @@ export default {
     async savePost() {
       var discussion = this.$refs.editDiscussion
       if (!discussion.data.topic) {
-        this.$message({ type: 'error', message: '标题不能为空' })
+        this.$message({ type: 'error', message: this.$t('error.discussionTitleEmpty') })
         return
       }
       if (!discussion.contents) {
-        this.$message({ type: 'error', message: '文章不能为空' })
+        this.$message({ type: 'error', message: this.$t('error.contentsEmpty') })
         return
       }
       if (discussion.isEditTopic) {
@@ -225,20 +229,20 @@ export default {
         },
       }).then((response) => {
         this.editPostDialogVisible = false
-        this.$message({ type: 'success', message: '修改成功' })
+        this.$message({ type: 'success', message: this.$t('success.edited') })
         this.reload()
       }).catch((error) => {
         if (error.response && error.response.data && error.response.data.errors) {
           this.$alert(error.response.data.errors.join(''))
         }else{
-          this.$alert('啊哦😰！未知错误，你可以给我们反馈')
+          this.$alert(this.$t('error.unknown'))
         }
       })
     },
     async toggleLike(post) {
       if (post.isLiked) {
         this.$message({
-          message: '你已经赞过了',
+          message: this.$t('warning.alreadyLiked'),
         })
       } else {
         post.isLiked = true
@@ -309,7 +313,7 @@ export default {
         if (error.response && error.response.data && error.response.data.errors) {
           this.$alert(error.response.data.errors.join(''))
         }else{
-          this.$alert('啊哦😰！未知错误，你可以给我们反馈')
+          this.$alert(this.$t('error.unknown'))
         }
       })
 

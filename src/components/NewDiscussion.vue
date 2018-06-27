@@ -4,7 +4,7 @@
       <el-input class="input-body" :placeholder="$t('discussion.namePlaceholder')"
         v-model="data.topic"
         :rules="[
-          { required: true, message: $t('error.discussionNameEmpty'), }
+          { required: true, message: $t('error.discussionTitleEmpty'), }
         ]"></el-input>
     </el-form-item>
     <el-form-item :label="$t('discussion.category')" :label-width="labelWidth">
@@ -29,13 +29,16 @@
       </el-select>
     </el-form-item>
     <el-form-item :label-width="inputMargin === 'null' ? labelWidth:inputMargin">
-      <editor initialValue="" @change="updateContent" />
+      <no-ssr>
+        <editor initialValue="" @change="updateContent" />
+      </no-ssr>
     </el-form-item>
   </el-form>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import NoSSR from 'vue-no-ssr'
 import MyEditor from './MyEditor'
 
 export default {
@@ -55,6 +58,7 @@ export default {
   },
   name: 'NewDiscussion',
   components: {
+    'no-ssr': NoSSR,
     editor: MyEditor,
   },
   data() {

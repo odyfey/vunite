@@ -10,8 +10,8 @@
       @close="onNewDiscussionDialogClose">
       <new-discussion ref="newDiscussionForm" />
       <div slot="footer">
-        <el-button @click="newDiscussionDialogVisible = false">{{ $t('sidebar.cancel') }}</el-button>
-        <el-button type="primary" @click="postNewDiscussion" :disabled="postingNew">{{ $t('sidebar.send') }}</el-button>
+        <el-button @click="newDiscussionDialogVisible = false">{{ $t('action.cancel') }}</el-button>
+        <el-button type="primary" @click="postNewDiscussion" :disabled="postingNew">{{ $t('action.send') }}</el-button>
       </div>
     </el-dialog>
     <!-- dialog for mobile newDiscussion -->
@@ -25,8 +25,8 @@
       @close="onNewDiscussionDialogClose">
       <new-discussion ref="newDiscussionForm2" label-width="100px" inputMargin="0px" label-position="left" />
       <div slot="footer">
-        <el-button @click="newDiscussionDialogVisible2 = false">{{ $t('sidebar.cancel') }}</el-button>
-        <el-button type="primary" @click="postNewDiscussion2" :disabled="postingNew2">{{ $t('sidebar.send') }}</el-button>
+        <el-button @click="newDiscussionDialogVisible2 = false">{{ $t('action.cancel') }}</el-button>
+        <el-button type="primary" @click="postNewDiscussion2" :disabled="postingNew2">{{ $t('action.send') }}</el-button>
       </div>
     </el-dialog>
 
@@ -221,7 +221,7 @@ export default {
       var { data } = this.$refs.newDiscussionForm;
       
       if (!data.topic) {
-        this.$message({ type: "error", message: this.$t('error.discussionNameEmpty') });
+        this.$message({ type: "error", message: this.$t('error.discussionTitleEmpty') });
         return;
       }
       if (!data.category || data.category.length === 0) {
@@ -262,7 +262,7 @@ export default {
     async postNewDiscussion2() {
       var { data } = this.$refs.newDiscussionForm2;
       if (!data.topic) {
-        this.$message({ type: "error", message: this.$t('error.discussionNameEmpty') });
+        this.$message({ type: "error", message: this.$t('error.discussionTitleEmpty') });
         return;
       }
       if (!data.category || data.category.length === 0) {

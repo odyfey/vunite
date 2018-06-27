@@ -12,9 +12,15 @@
         "activity": "Активность"
     },
 
-    "sidebar": {
+    "action": {
+        "cancel": "Отменить",
         "send": "Отправить",
-        "cancel": "Отмена"
+        "save": "Сохранить",
+        "reply": "Ответить",
+        "editPost": "Редактировать",
+        "toBookmarks": "В закладки",
+        "share": "Поделиться",
+        "copyLink": "Скопировать ссылку"
     },
 
     "discussion": {
@@ -24,6 +30,10 @@
         "category": "Категория",
         "tag": "Тэг (необязателен)",
         "tagPlaceholder": "Выберете один или несколько тегов"
+    },
+
+    "topic": {
+        "edit": "Изменить тему"
     },
 
     "editor": {
@@ -45,14 +55,24 @@
         "flags": "Флаги"
     },
 
+    "success": {
+        "discussionTitle": "Заголовок успешно изменён",
+        "edited": "Отредактировано"
+    },
+
+    "warning": {
+        "alreadyLiked": "Вы уже оценивали данный пост"
+    },
+
     "error": {
         "title": "Ошибка",
-        "discussionNameEmpty": "название темы не может быть пустым",
+        "discussionTitleEmpty": "Заголовок темы не может быть пустым",
         "categoryNotSelected": "Необходимо выбрать категорию",
         "contentsEmpty": "Содержимое темы не может быть пустым",
         "fileExtensionNotResolved": "Расширение файла не соответствует допустимым: jpg, jpeg, png, gif, tgz, zip, rar, json, so, pdf",
         "uploadFile": "Загрузка файла не удалась",
         "fileIsTooLarge": "Загружаемый файл слишком большой",
-        "serverIsBusy": "Сервер не отвечает, повторите попытку позже"
+        "serverIsBusy": "Сервер не отвечает, повторите попытку позже",
+        "unknown": "Неизвестная ошибка, сообщите о ней администрации"
     }
 }
