@@ -1,5 +1,6 @@
 import Vue from 'vue'
-import { DISCOURSE_SSO_PROXY, TOKEN_STORAGE, USERINFO_STORAGE } from '@/const'
+import { config } from '@/config'
+import { TOKEN_STORAGE, USERINFO_STORAGE } from '@/const'
 
 const namespaced = true
 
@@ -54,7 +55,7 @@ const actions = {
 
     async fetchToken({ commit, dispatch }, query) {
         try {
-            const response = await Vue.http.get(`${DISCOURSE_SSO_PROXY}/getToken?sso=${query.sso}&sig=${query.sig}`, {
+            const response = await Vue.http.get(`${config.discourse.ssoProxy}/getToken?sso=${query.sso}&sig=${query.sig}`, {
                 responseType: 'text'
             })
 

@@ -61,7 +61,7 @@ import NoSSR from 'vue-no-ssr'
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import { Picker } from 'emoji-mart-vue'
 import { mapGetters } from 'vuex'
-import { DISCOURSE_BACKEND } from '@/const'
+import { config } from '@/config'
 
 export default {
   name: 'NewDiscussion',
@@ -146,7 +146,7 @@ export default {
           'Content-Type': 'multipart/form-data',
         },
       })
-      this.$refs.editor.$img2Url(pos, `${DISCOURSE_BACKEND}res.data.url`)
+      this.$refs.editor.$img2Url(pos, `${config.discourse.backend}res.data.url`)
     },
     handleUploadFile(context) {
       var data = new FormData()
@@ -169,7 +169,7 @@ export default {
     onUploadFileSuccess(res, file, fileList) {
       let editor = this.$refs.editor;
       editor.insertText(editor.getTextareaDom(), {
-        prefix: `[${res.data.original_filename}](${DISCOURSE_BACKEND}${res.data.url})`,
+        prefix: `[${res.data.original_filename}](${config.discourse.backend}${res.data.url})`,
         subfix: '',
         str: ''
       })

@@ -48,7 +48,8 @@
 </template>
 
 <script>
-import {  DISCOURSE_BACKEND, DISCOURSE_SSO_PROXY, TOKEN_STORAGE, USERINFO_STORAGE } from './const'
+import { config } from './config'
+import { TOKEN_STORAGE, USERINFO_STORAGE } from './const'
 import Sidebar from '@/components/Sidebar'
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import { mapGetters, mapMutations } from 'vuex'
@@ -65,7 +66,7 @@ export default {
         return {
             isShowMobMenu: false,
             scrolled: false,
-            loginUrl: `${DISCOURSE_SSO_PROXY}/login`,
+            loginUrl: `${config.discourse.ssoProxy}/login`,
             query: null,
         }
     },
@@ -78,7 +79,7 @@ export default {
         }),
 
         profileUrl() {
-            return `${DISCOURSE_BACKEND}/u/${this.username}/`
+            return `${config.discourse.backend}/u/${this.username}/`
         },
     },
 

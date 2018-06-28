@@ -23,7 +23,7 @@
 <script>
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import TopicList from '@/components/TopicList'
-import { DISCOURSE_BACKEND } from '../const'
+import { config } from '@/config'
 
 export default {
   name: 'Search',
@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     avatar(post) {
-      return `${DISCOURSE_BACKEND}/${post.avatar_template.replace('{size}', 36)}`
+      return `${config.discourse.backend}/${post.avatar_template.replace('{size}', 36)}`
     },
     title(topicId) {
       var topic = this.raw.topics.find((item) => item.id === topicId)

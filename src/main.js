@@ -22,7 +22,6 @@ import { createStore } from './store'
 import { createI18n } from './i18n'
 import { sync } from 'vuex-router-sync'
 import { config } from './config'
-import { DISCOURSE_BACKEND_PROXY } from './const'
 
 fontawesome.library.add(faRegular)
 fontawesome.library.add(faSolid)
@@ -42,7 +41,7 @@ export function createApp({ isClient }) {
     sync(store, router)
 
     const httpOpts = {
-        baseURL: DISCOURSE_BACKEND_PROXY,
+        baseURL: config.discourse.backendProxy,
         headers: {
             'X-Requested-With': 'XMLHttpRequest',
         },

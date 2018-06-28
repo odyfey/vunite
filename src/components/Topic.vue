@@ -119,7 +119,6 @@ import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import { mapGetters } from 'vuex'
 import EditDiscussion from './EditDiscussion'
 import MyEditor from './MyEditor'
-import { DISCOURSE_BACKEND } from '@/const'
 import { config } from '@/config'
 
 export default {
@@ -132,6 +131,7 @@ export default {
   },
   data () {
     return {
+      baseUrl: config.baseUrl,
       title: null,
       posts: [],
       stream: [],
@@ -165,10 +165,7 @@ export default {
     },
     ...mapGetters({
       username: 'User/username',
-    }),
-    baseUrl() {
-      return config.baseUrl
-    }
+    })
   },
   methods: {
     // 盘古开天辟地，把文字劈开。search pangu on github for more info
@@ -176,7 +173,7 @@ export default {
       return pangu.spacing(text)
     },
     avatar(template_url, item) {
-      return `${DISCOURSE_BACKEND}/${template_url.replace('{size}', this.avatarSize)}`
+      return `${config.discourse.backend}/${template_url.replace('{size}', this.avatarSize)}`
     },
     calendar(date) {
       return moment(date).fromNow()
