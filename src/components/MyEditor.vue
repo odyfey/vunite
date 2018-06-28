@@ -19,19 +19,21 @@
       @after-enter="renderEmoji">
       <div>
         <p v-if="rendering">{{ $t('emoji.rendering') }}</p>
-        <emoji-picker
-          v-if="true"
-          @select="pickEmoji"
-          :set="emojiConf.set"
-          :perLine="13"
-          :sheetSize="emojiConf.sheetSize"
-          :emojiSize="emojiConf.emojiSize"
-          :native="false"
-          :showPreview="false"
-          :showSearch="false"
-          :showSkinTones="false"
-          :showCategories="false"
-          :i18n="emojiTranslated" />
+          <no-ssr>
+            <emoji-picker
+              v-if="true"
+              @select="pickEmoji"
+              :set="emojiConf.set"
+              :perLine="13"
+              :sheetSize="emojiConf.sheetSize"
+              :emojiSize="emojiConf.emojiSize"
+              :native="false"
+              :showPreview="false"
+              :showSearch="false"
+              :showSkinTones="false"
+              :showCategories="false"
+              :i18n="emojiTranslated" />
+          </no-ssr>
       </div>
       <button slot="reference" ref="emoji" type="button" class="op-icon" :title="$t('emoji.title')">
         <fa-icon icon="smile"></fa-icon>
@@ -55,9 +57,10 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import { Picker } from 'emoji-mart-vue'
+import NoSSR from 'vue-no-ssr'
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
+import { Picker } from 'emoji-mart-vue'
+import { mapGetters } from 'vuex'
 import { DISCOURSE_BACKEND } from '@/const'
 
 export default {
@@ -66,6 +69,7 @@ export default {
     'initialValue'
   ],
   components: {
+    'no-ssr': NoSSR,
     'fa-icon': FontAwesomeIcon,
     'emoji-picker': Picker,
   },
@@ -185,31 +189,33 @@ export default {
       this.uploadElem.click()
     },
     isMobile() {
+      if (!this.$isServer) {
+        /**
+        *  作者：tony
+        *  链接：https://www.zhihu.com/question/21357506/answer/190898690
+        *  来源：知乎
+        *  著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+        */
+        var u = navigator.userAgent
+        var ua = {
+          trident: u.indexOf('Trident') > -1, //IE内核  
+          presto: u.indexOf('Presto') > -1,   //opera内核  
+          webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核  
+          gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核  
+          mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端  
+          ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端  
+          android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器  
+          iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器  
+          iPad: u.indexOf('iPad') > -1, //是否iPad    
+          webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部  
+          weixin: u.indexOf('MicroMessenger') > -1, //是否微信   
+          qq: u.match(/\sQQ/i) == " qq" //是否QQ  
+        }
+        if (ua.mobile || ua.ios || ua.android || ua.iPhone || ua.iPad) {
+          return true
+        }
+      }
 
-      /**
-      *  作者：tony
-      *  链接：https://www.zhihu.com/question/21357506/answer/190898690
-      *  来源：知乎
-      *  著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-      */
-      var u = navigator.userAgent
-      var ua = {
-        trident: u.indexOf('Trident') > -1, //IE内核  
-        presto: u.indexOf('Presto') > -1,   //opera内核  
-        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核  
-        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核  
-        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端  
-        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端  
-        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器  
-        iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器  
-        iPad: u.indexOf('iPad') > -1, //是否iPad    
-        webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部  
-        weixin: u.indexOf('MicroMessenger') > -1, //是否微信   
-        qq: u.match(/\sQQ/i) == " qq" //是否QQ  
-      }
-      if (ua.mobile || ua.ios || ua.android || ua.iPhone || ua.iPad) {
-        return true
-      }
       return false
     }
   },

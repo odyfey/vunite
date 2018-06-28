@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueAffix from 'vue-affix'
 import VueScrollTo from 'vue-scrollto'
-import MavonEditor from 'mavon-editor'
 import * as ElementUI from 'element-ui'
 
 import axios from 'axios'
@@ -22,19 +21,18 @@ import { createRouter } from './router'
 import { createStore } from './store'
 import { createI18n } from './i18n'
 import { sync } from 'vuex-router-sync'
-import { locale } from './config'
+import { config } from './config'
 import { DISCOURSE_BACKEND_PROXY } from './const'
 
 fontawesome.library.add(faRegular)
 fontawesome.library.add(faSolid)
-moment.locale(locale)
+moment.locale(config.locale)
 
 export function createApp({ isClient }) {
     Vue.config.productionTip = false
 
     Vue.use(VueAffix)
     Vue.use(VueScrollTo)
-    Vue.use(MavonEditor)
     Vue.use(ElementUI)
 
     const store = createStore()

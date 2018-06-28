@@ -72,13 +72,11 @@
                       <span>{{ $t('action.share') }}</span>
                     </a>
                   </span>
-                  <no-ssr>
-                    <template>
-                      <el-input size="small" autofocus
-                        :value="`${window.location.origin}/topic/${item.id}?u=${username}#${index + 1}`" />
-                      <el-button type="primary" size="small" class="share-popover-copybtn">{{ $t('action.copyLink') }}</el-button>
-                    </template>
-                  </no-ssr>
+                  <template>
+                    <el-input size="small" autofocus
+                      :value="`${baseUrl}/topic/${item.id}?u=${username}#${index + 1}`" />
+                    <el-button type="primary" size="small" class="share-popover-copybtn">{{ $t('action.copyLink') }}</el-button>
+                  </template>
                 </el-popover>
               </div>
             </div>
@@ -121,7 +119,8 @@ import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import { mapGetters } from 'vuex'
 import EditDiscussion from './EditDiscussion'
 import MyEditor from './MyEditor'
-import { DISCOURSE_BACKEND } from '../const'
+import { DISCOURSE_BACKEND } from '@/const'
+import { config } from '@/config'
 
 export default {
   name: 'Topic',
@@ -167,6 +166,9 @@ export default {
     ...mapGetters({
       username: 'User/username',
     }),
+    baseUrl() {
+      return config.baseUrl
+    }
   },
   methods: {
     // 盘古开天辟地，把文字劈开。search pangu on github for more info

@@ -1,10 +1,12 @@
 import Vue from 'vue'
+import MavonEditor from 'mavon-editor'
 import VueInfiniteScroll from 'vue-infinite-scroll'
 
 import popover from 'element-ui/packages/popover/src/directive'
 
 import { createApp } from './main'
 
+Vue.use(MavonEditor)
 Vue.use(VueInfiniteScroll)
 Vue.directive('popover', popover)
 
