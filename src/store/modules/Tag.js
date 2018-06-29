@@ -1,34 +1,28 @@
-import Vue from 'vue';
+import Vue from 'vue'
 
-var state = {
-  all: [],
+const state = {
+    all: [],
 }
 
-var mutations = {
-  updateTags(state, list) {
-    state.all = list
-  },
+const mutations = {
+    updateTags: (state, list) => state.all = list,
 }
 
-var getters = {
-  allTags(state) {
-    return state.all || []
-  },
+const getters = {
+    allTags: (state) => state.all,
 }
 
-var actions = {
-  async getTags({ commit, getters }) {
-    if (!getters.allTags.length) {
-      var { data } = await Vue.http.get('/tags.json')
-      commit('updateTags', data.tags)
-    }
-    return getters.allTags
-  },
+const actions = {
+    getTags({ commit }) {
+        return Vue.http.get('/tags.json').then(result => {
+            commit('updateTags', result.data.tags)
+        })
+    },
 }
 
 export default {
-  state,
-  mutations,
-  getters,
-  actions,
-};
+    state,
+    mutations,
+    getters,
+    actions,
+}
