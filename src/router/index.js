@@ -10,7 +10,7 @@ export function createRouter(store, isClient) {
             {
                 path: '/',
                 name: 'Home',
-                component: () => import('@/components/Home'),
+                component: () => import('@/components/Category'),
             },
             {
                 path: '/category/:id/:subId?',

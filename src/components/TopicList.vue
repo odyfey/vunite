@@ -4,7 +4,7 @@
       <fa-icon icon="spinner" class="fa-spin" size="2x"></fa-icon>
     </div>
     <ul v-infinite-scroll="onLoadMore" infinite-scroll-distance="10">
-      <li class="topic" v-for="item in topics">
+      <li class="topic" v-for="item in topics" :key="item.id">
         <div class="topic-avatar">
           <img :src="avatar(item.posters[0].user_id)" />
         </div>
@@ -16,11 +16,11 @@
           <p>
             <fa-icon icon="reply"></fa-icon>
             <span class="topic-last-user">{{item.last_poster_username}}</span>
-            <span class="topic-last-post">{{calendar(item.last_posted_at)}}回复</span>
+            <span class="topic-last-post">{{ $t('topic.replied') }} {{calendar(item.last_posted_at)}}</span>
           </p>
         </div>
         <div class="topic-controls">
-          <router-link v-for="tag in item.tags"
+          <router-link v-for="tag in item.tags" :key="tag.id"
             class="topic-tag" 
             :to="`/category/tag?id=${tag}`">{{tag}}</router-link>
           <ul class="topic-summary">
@@ -42,57 +42,67 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script>
 import moment from 'moment'
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import { config } from '@/config'
 
 export default {
-  name: 'TopicList',
-  components: {
-    'fa-icon': FontAwesomeIcon,
-  },
-  props: ['topics', 'users', 'fetch', 'onClickItem'],
-  data() {
-    return {
-      state: 'init',
-      loadable: false,
+    name: 'TopicList',
+
+    components: {
+        'fa-icon': FontAwesomeIcon,
+    },
+
+    props: ['topics', 'users', 'fetch', 'onClickItem'],
+
+    data() {
+        return {
+            state: 'init',
+            loadable: false,
+        }
+    },
+
+    methods: {
+        avatar(id) {
+            var user = this.users.find((user) => user.id === id)
+            
+            if (user)
+                return `${config.discourse.backend}/${user.avatar_template.replace('{size}', 36)}`
+            else
+                return null
+        },
+
+        calendar(date) {
+            return moment(date).fromNow()
+        },
+
+        number(val) {
+            if (val > 1000) {
+                return `${parseInt(val / 1000)}k`
+            } else {
+                return val
+            }
+        },
+
+        async onLoadMore() {
+            if (!this.loadable)
+                return;
+
+            this.loadable = false
+            this.state = 'next'
+            await this.$props.fetch()
+            this.state = 'finished'
+            this.loadable = true
+        },
+
+        async reload() {
+            this.state = 'init'
+            await this.$props.fetch()
+            this.state = 'finished'
+            this.loadable = true
+        },
     }
-  },
-  methods: {
-    avatar(id) {
-      var user = this.users.find((user) => user.id === id)
-      if (user)
-        return `${config.discourse.backend}/${user.avatar_template.replace('{size}', 36)}`
-      else
-        return null
-    },
-    calendar(date) {
-      return moment(date).fromNow()
-    },
-    number(val) {
-      if (val > 1000) {
-        return `${parseInt(val / 1000)}k`
-      } else {
-        return val
-      }
-    },
-    async onLoadMore() {
-      if (!this.loadable)
-        return;
-      this.loadable = false
-      this.state = 'next'
-      await this.$props.fetch()
-      this.state = 'finished'
-      this.loadable = true
-    },
-    async reload() {
-      this.state = 'init'
-      await this.$props.fetch()
-      this.state = 'finished'
-      this.loadable = true
-    },
-  }
 }
 </script>
 

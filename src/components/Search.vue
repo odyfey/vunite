@@ -4,7 +4,7 @@
       <fa-icon icon="spinner" class="fa-spin" size="2x"></fa-icon>
     </div>
     <ul>
-      <li class="list-item" @click="goTopic(item.topic_id)" v-for="item in posts">
+      <li class="list-item" @click="goTopic(item.topic_id)" v-for="item in posts" :key="item.id">
         <div class="item-avatar">
           <img :src="avatar(item)" />
         </div>
@@ -15,7 +15,7 @@
       </li>
     </ul>
     <div v-if="state === 'finished' && !posts.length">
-      <p>没有相关的答案，请重新搜索</p>
+      <p>{{ $t('warning.notFound') }}</p>
     </div>
   </div>
 </template>

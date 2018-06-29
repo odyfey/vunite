@@ -23,6 +23,11 @@
         "copyLink": "复制链接"
     },
 
+    "category": {
+        "orderLatest": "最新",
+        "orderTop": "热门"
+    },
+
     "discussion": {
         "new": "新建讨论",
         "name": "主题",
@@ -33,7 +38,8 @@
     },
 
     "topic": {
-        "edit": "修改主题"
+        "edit": "修改主题",
+        "replied": " 回复"
     },
 
     "editor": {
@@ -61,7 +67,8 @@
     },
 
     "warning": {
-        "alreadyLiked": "你已经赞过了"
+        "alreadyLiked": "你已经赞过了",
+        "notFound": "没有相关的答案，请重新搜索"
     },
 
     "error": {

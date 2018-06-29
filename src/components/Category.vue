@@ -35,8 +35,8 @@ export default {
       users: [],
       orderBy: 'latest',
       orderType: {
-        latest: '最新',
-        top: '热门',
+        latest: this.$t('category.orderLatest'),
+        top: this.$t('category.orderTop'),
       },
     }
   },
@@ -67,9 +67,10 @@ export default {
       this.topics.length = 0
       this.users.length = 0
 
-      if (slug === 'all') {
+      if (!slug || slug === 'all') {
         this.nextUrl = `/${this.orderBy}.json`
       } else if (slug === 'activity') {
+        //todo: get activity stream or twitter stream
         this.nextUrl = `/${this.orderBy}.json?tags=活动`
       } else if (slug === 'faq') {
         this.nextUrl = `/${this.orderBy}.json?tags=常见问题`
