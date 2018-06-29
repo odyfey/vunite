@@ -47,7 +47,7 @@ export function createRouter(store, isClient) {
         
         router.beforeEach((to, from, next) => {
             if ( hasQueryParams(to) && to.query.sso ) {
-                store.dispatch('User/fetchToken', to.query)
+                store.dispatch('User/fetchBearerToken', to.query)
                 next({
                     path: '/'
                 })

@@ -49,7 +49,7 @@
 
 <script>
 import { config } from './config'
-import { TOKEN_STORAGE, USERINFO_STORAGE } from './const'
+import { TOKEN_STORAGE, API_KEY_STORAGE, USERINFO_STORAGE } from './const'
 import Sidebar from '@/components/Sidebar'
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import { mapGetters, mapMutations } from 'vuex'
@@ -75,7 +75,7 @@ export default {
         ...mapGetters({
             authorized: 'User/authorized',
             username: 'User/username',
-            unreadNotifications: 'Notification/unreadNotifications'
+            unreadNotifications: 'Notification/unread'
         }),
 
         profileUrl() {
@@ -85,18 +85,21 @@ export default {
 
     methods: {
         ...mapMutations({
-            setToken: 'User/setToken',
+            setBearer: 'User/setBearer',
+            setApiKey: 'User/setApiKey',
             setUserInfo: 'User/setUserInfo',
             clear: 'User/clear'
         }),
 
         fetchLocalStorage() {
-            this.setToken( localStorage.getItem(TOKEN_STORAGE) )
+            this.setBearer( localStorage.getItem(TOKEN_STORAGE) )
+            this.setApiKey( localStorage.getItem(API_KEY_STORAGE) )
             this.setUserInfo( JSON.parse( localStorage.getItem(USERINFO_STORAGE) ) )
         },
 
         logout() {
             localStorage.removeItem(TOKEN_STORAGE)
+            localStorage.removeItem(API_KEY_STORAGE)
             localStorage.removeItem(USERINFO_STORAGE)
 
             this.clear()
@@ -125,7 +128,7 @@ export default {
 
     mounted() {
         this.fetchLocalStorage()
-        //this.$store.dispatch('loadNotifications')
+        this.$store.dispatch('Notification/load')
     },
 
     beforeMount() {

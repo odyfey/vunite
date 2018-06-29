@@ -68,12 +68,15 @@ import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 export default {
   name: 'Notification',
   computed: {
-    ...mapGetters(['allNotifications']),
+    ...mapGetters({
+      allNotifications: 'Notification/all'
+    }),
   },
   components: {
     'fa-icon': FontAwesomeIcon,
   },
   methods: {
+    //todo: switch
     iconName(type) {
       if (type === 1) {
         return ['fas', 'at']

@@ -51,7 +51,7 @@ export function createApp({ isClient }) {
 
     let _http = axios.create(httpOpts)
     _http.interceptors.request.use(request => {
-        const token = store.getters['token']
+        const token = store.getters['bearer']
 
         if (token)
             request.headers.common['Authorization'] = `Bearer ${token}`

@@ -14,14 +14,14 @@ const mutations = {
 }
 
 const getters = {
-    allNotifications: state => state.all,
+    all: state => state.all,
 
-    unreadNotifications: state => state.all.filter((item) => !item.read),
+    unread: state => state.all.filter((item) => !item.read),
 }
 
 const actions = {
-    async loadNotifications({ commit }) {
-        const res = await Vue.http.get('/notifications.json')
+    async load({ commit, rootGetters }) {
+        const res = await Vue.http.get(`/notifications.json?api_key=${rootGetters['User/apiKey']}&api_username=${rootGetters['User/username']}`)
         commit('replace', res.data.notifications)
     },
 }
