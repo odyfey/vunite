@@ -23,6 +23,17 @@
         "copyLink": "复制链接"
     },
 
+    "notification": {
+        "mentioned": "你了在 中",
+        "replied": "回复了你",
+        "edited": "编辑了",
+        "liked": "赞了你在",
+        "private_message": "给你发送了消息",
+        "posted": "评论了",
+        "granted_badge": "设置了",
+        "accepted": "接受了你在"
+    },
+
     "category": {
         "orderLatest": "最新",
         "orderTop": "热门"
