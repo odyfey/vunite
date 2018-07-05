@@ -21,6 +21,7 @@ module.exports = {
     alias: {
       'public': resolve('public'),
       '@': resolve('src'),
+      assets: resolve('src/assets'),
     }
   },
   module: {

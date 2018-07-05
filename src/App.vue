@@ -198,10 +198,10 @@ export default {
 }
 
 #header-logo {
-  background: url(http://s.rokidcdn.com/forum/logo.png);
+  background: url(assets/logo.png);
   background-size: cover;
   height: 35px;
-  width: 160px;
+  width: 128px;
   float: left;
 }
 
