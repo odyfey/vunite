@@ -1,9 +1,0 @@
-{
-  "listen": 8888,
-  "targetURL": "http://discourse.test",
-  "outgoing": {
-    "access-control-allow-origin": "http://localhost:8080",
-    "access-control-allow-headers": "+Content-Type, Authorization",
-    "access-control-expose-headers": "x-discourse-username, x-discourse-route"
-  }
-}

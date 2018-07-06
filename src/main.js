@@ -41,7 +41,7 @@ export function createApp({ isClient }) {
     sync(store, router)
 
     const httpOpts = {
-        baseURL: config.discourse.backendProxy,
+        baseURL: config.discourse.backend,
         headers: {
             'X-Requested-With': 'XMLHttpRequest',
         },
