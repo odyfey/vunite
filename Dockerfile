@@ -1,7 +1,8 @@
 FROM node:9.11.1-alpine
 WORKDIR /app
 
-COPY node_modules .
+RUN npm install -g cross-env
+
 COPY dist .
 COPY server.js .
 COPY package.json .
