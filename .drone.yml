@@ -1,0 +1,14 @@
+pipeline:
+  build:
+    image: node
+    commands:
+      - npm install
+      - npm run build
+
+  deploy:
+    image: docker
+    commands:
+      - docker build --rm -t zullin/vunite
+      - docker run --rm zullin/vunite
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
