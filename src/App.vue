@@ -38,7 +38,7 @@
     </div>
     <div id="app-footer">
       <div class="inner">
-        <img src="https://developer.rokid.com/static/img/logo-developer-bottom.5c6d18f.png" />
+        <!--<img src="https://developer.rokid.com/static/img/logo-developer-bottom.5c6d18f.png" />-->
         <ul>
           <li><a target="_blank" href="https://github.com/zullin/vunite">{{ $t('app.powered') }}</a></li>
         </ul>
