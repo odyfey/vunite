@@ -3,6 +3,7 @@ WORKDIR /app
 
 RUN npm install -g cross-env
 
+COPY node_modules .
 COPY dist .
 COPY server.js .
 COPY package.json .
