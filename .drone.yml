@@ -4,7 +4,6 @@ pipeline:
     restore: true
     mount:
       - ./node_modules
-      - ./dist
     volumes:
       - /tmp/cache:/cache
 
@@ -27,6 +26,5 @@ pipeline:
     rebuild: true
     mount:
       - ./node_modules
-      - ./dist
     volumes:
       - /tmp/cache:/cache
