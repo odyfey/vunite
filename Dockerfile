@@ -3,10 +3,10 @@ WORKDIR /app
 
 RUN mkdir src
 
-COPY dist .
+COPY dist ./
 COPY src/index.template.html src/index.template.html
 COPY server.js .
-COPY package*.json .
+COPY package*.json ./
 
 RUN npm install -g cross-env
 RUN npm install express vue-server-renderer@2.5.16
