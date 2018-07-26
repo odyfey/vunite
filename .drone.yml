@@ -10,16 +10,17 @@ pipeline:
   build:
     image: node
     commands:
-      - npm install
+      - npm install --quiet
       - npm run build
 
-  deploy:
-    image: docker
-    commands:
-      - docker build --rm -t zullin/vunite .
-      - docker run --rm zullin/vunite
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+  publish:
+    image: plugins/docker
+    username: ${DOCKER_USERNAME}
+    password: ${DOCKER_PASSWORD}
+    email: ${DOCKER_EMAIL}
+    repo: zullin/vunite
+    tag: latest
+    file: Dockerfile
 
   rebuild-cache:
     image: drillster/drone-volume-cache
