@@ -15,12 +15,10 @@ pipeline:
 
   publish:
     image: plugins/docker
-    username: ${DOCKER_USERNAME}
-    password: ${DOCKER_PASSWORD}
-    email: ${DOCKER_EMAIL}
     repo: zullin/vunite
-    tag: latest
-    file: Dockerfile
+    tags: latest
+    dockerfile: Dockerfile
+    secrets: [ docker_username, docker_password ]
 
   rebuild-cache:
     image: drillster/drone-volume-cache
