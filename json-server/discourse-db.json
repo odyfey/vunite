@@ -1,0 +1,441 @@
+{
+    "categories.json": {
+        "category_list": {
+            "can_create_topic": true,
+            "categories": [
+                {
+                    "id": 1,
+                    "name": "Uncategorized",
+                    "color": "AB9364",
+                    "text_color": "FFFFFF",
+                    "slug": "uncategorized",
+                    "topic_count": 3,
+                    "post_count": 4,
+                    "position": 0,
+                    "description": "Topics that do not need a section, or that do not fall into any of the existing sections.",
+                    "description_text": "",
+                    "topic_url": null,
+                    "read_restricted": false,
+                    "permission": null,
+                    "notification_level": null,
+                    "topic_template": null,
+                    "has_children": false,
+                    "sort_order": null,
+                    "sort_ascending": null,
+                    "show_subcategory_list": false,
+                    "num_featured_topics": 3,
+                    "default_view": null,
+                    "subcategory_list_style": "rows_with_featured_topics",
+                    "default_top_period": "all",
+                    "minimum_required_tags": 0,
+                    "topics_day": 0,
+                    "topics_week": 0,
+                    "topics_month": 1,
+                    "topics_year": 3,
+                    "topics_all_time": 3,
+                    "description_excerpt": "Topics that do not need a section, or that do not fall into any of the existing sections.",
+                    "is_uncategorized": true,
+                    "uploaded_logo": null,
+                    "uploaded_background": null
+                  },
+                  {
+                    "id": 3,
+                    "name": "Site Feedback",
+                    "color": "808281",
+                    "text_color": "FFFFFF",
+                    "slug": "site-feedback",
+                    "topic_count": 0,
+                    "post_count": 0,
+                    "position": 1,
+                    "description": "Discussion about this site, its organization, how it works, and how we can improve it.",
+                    "description_text": "Discussion about this site, its organization, how it works, and how we can improve it.",
+                    "topic_url": "/t/about-the-site-feedback-category/2",
+                    "read_restricted": false,
+                    "permission": null,
+                    "notification_level": null,
+                    "topic_template": null,
+                    "has_children": false,
+                    "sort_order": null,
+                    "sort_ascending": null,
+                    "show_subcategory_list": false,
+                    "num_featured_topics": 3,
+                    "default_view": null,
+                    "subcategory_list_style": "rows_with_featured_topics",
+                    "default_top_period": "all",
+                    "minimum_required_tags": 0,
+                    "topics_day": 0,
+                    "topics_week": 0,
+                    "topics_month": 0,
+                    "topics_year": 0,
+                    "topics_all_time": 0,
+                    "description_excerpt": "Discussion about this site, its organization, how it works, and how we can improve it.",
+                    "uploaded_logo": null,
+                    "uploaded_background": null
+                  }
+            ]
+        }
+    },
+
+    "topics.json": [
+        {
+            "post_stream": {
+                "posts": [
+                {
+                    "id": 6,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/user_avatar/discourse.test/system/{size}/2_1.png",
+                    "created_at": "2018-05-22T16:22:23.856Z",
+                    "cooked": "\u003cp\u003e\u003ca name=\"civilized\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#civilized\"\u003eThis is a Civilized Place for Public Discussion\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003ePlease treat this discussion forum with the same respect you would a public park.  We, too, are a shared community resource — a place to share skills, knowledge and interests through ongoing conversation.\u003c/p\u003e\n\u003cp\u003eThese are not hard and fast rules, merely guidelines to aid the human judgment of our community and keep this a clean and well-lighted place for civilized public discourse.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"improve\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#improve\"\u003eImprove the Discussion\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eHelp us make this a great place for discussion by always working to improve the discussion in some way, however small. If you are not sure your post adds to the conversation, think over what you want to say and try again later.\u003c/p\u003e\n\u003cp\u003eThe topics discussed here matter to us, and we want you to act as if they matter to you, too. Be respectful of the topics and the people discussing them, even if you disagree with some of what is being said.\u003c/p\u003e\n\u003cp\u003eOne way to improve the discussion is by discovering ones that are already happening. Spend time browsing the topics here before replying or starting your own, and you’ll have a better chance of meeting others who share your interests.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"agreeable\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#agreeable\"\u003eBe Agreeable, Even When You Disagree\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eYou may wish to respond to something by disagreeing with it. That’s fine. But remember to \u003cem\u003ecriticize ideas, not people\u003c/em\u003e. Please avoid:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eName-calling\u003c/li\u003e\n\u003cli\u003eAd hominem attacks\u003c/li\u003e\n\u003cli\u003eResponding to a post’s tone instead of its actual content\u003c/li\u003e\n\u003cli\u003eKnee-jerk contradiction\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eInstead, provide reasoned counter-arguments that improve the conversation.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"participate\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#participate\"\u003eYour Participation Counts\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eThe conversations we have here set the tone for every new arrival. Help us influence the future of this community by choosing to engage in discussions that make this forum an interesting place to be — and avoiding those that do not.\u003c/p\u003e\n\u003cp\u003eDiscourse provides tools that enable the community to collectively identify the best (and worst) contributions: bookmarks, likes, flags, replies, edits, and so forth. Use these tools to improve your own experience, and everyone else’s, too.\u003c/p\u003e\n\u003cp\u003eLet’s leave our community better than we found it.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"flag-problems\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#flag-problems\"\u003eIf You See a Problem, Flag It\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eModerators have special authority; they are responsible for this forum. But so are you. With your help, moderators can be community facilitators, not just janitors or police.\u003c/p\u003e\n\u003cp\u003eWhen you see bad behavior, don’t reply. It encourages the bad behavior by acknowledging it, consumes your energy, and wastes everyone’s time. \u003cem\u003eJust flag it\u003c/em\u003e. If enough flags accrue, action will be taken, either automatically or by moderator intervention.\u003c/p\u003e\n\u003cp\u003eIn order to maintain our community, moderators reserve the right to remove any content and any user account for any reason at any time. Moderators do not preview new posts; the moderators and site operators take no responsibility for any content posted by the community.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"be-civil\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#be-civil\"\u003eAlways Be Civil\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eNothing sabotages a healthy conversation like rudeness:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eBe civil. Don’t post anything that a reasonable person would consider offensive, abusive, or hate speech.\u003c/li\u003e\n\u003cli\u003eKeep it clean. Don’t post anything obscene or sexually explicit.\u003c/li\u003e\n\u003cli\u003eRespect each other. Don’t harass or grief anyone, impersonate people, or expose their private information.\u003c/li\u003e\n\u003cli\u003eRespect our forum. Don’t post spam or otherwise vandalize the forum.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThese are not concrete terms with precise definitions — avoid even the \u003cem\u003eappearance\u003c/em\u003e of any of these things. If you’re unsure, ask yourself how you would feel if your post was featured on the front page of the New York Times.\u003c/p\u003e\n\u003cp\u003eThis is a public forum, and search engines index these discussions. Keep the language, links, and images safe for family and friends.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"keep-tidy\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#keep-tidy\"\u003eKeep It Tidy\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eMake the effort to put things in the right place, so that we can spend more time discussing and less cleaning up. So:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eDon’t start a topic in the wrong category.\u003c/li\u003e\n\u003cli\u003eDon’t cross-post the same thing in multiple topics.\u003c/li\u003e\n\u003cli\u003eDon’t post no-content replies.\u003c/li\u003e\n\u003cli\u003eDon’t divert a topic by changing it midstream.\u003c/li\u003e\n\u003cli\u003eDon’t sign your posts — every post has your profile information attached to it.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eRather than posting “+1” or “Agreed”, use the Like button. Rather than taking an existing topic in a radically different direction, use Reply as a Linked Topic.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"stealing\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#stealing\"\u003ePost Only Your Own Stuff\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eYou may not post anything digital that belongs to someone else without permission. You may not post descriptions of, links to, or methods for stealing someone’s intellectual property (software, video, audio, images), or for breaking any other law.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"power\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#power\"\u003ePowered by You\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eThis site is operated by your \u003ca href=\"/about\"\u003efriendly local staff\u003c/a\u003e and \u003cem\u003eyou\u003c/em\u003e, the community. If you have any further questions about how things should work here, open a new topic in the \u003ca href=\"/c/site-feedback\"\u003esite feedback category\u003c/a\u003e and let’s discuss! If there’s a critical or urgent issue that can’t be handled by a meta topic or flag, contact us via the \u003ca href=\"/about\"\u003estaff page\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"tos\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#tos\"\u003eTerms of Service\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eYes, legalese is boring, but we must protect ourselves – and by extension, you and your data – against unfriendly folks. We have a \u003ca href=\"/tos\"\u003eTerms of Service\u003c/a\u003e describing your (and our) behavior and rights related to content, privacy, and laws. To use this service, you must agree to abide by our \u003ca href=\"/tos\"\u003eTOS\u003c/a\u003e.\u003c/p\u003e",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "updated_at": "2018-07-27T15:41:12.848Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "topic_id": 5,
+                    "topic_slug": "faq-guidelines",
+                    "display_username": "system",
+                    "can_edit": false,
+                    "read": true,
+                    "actions_summary": [],
+                    "user_id": -1
+                },
+                {
+                    "id": 7,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/user_avatar/discourse.test/system/{size}/2_1.png",
+                    "created_at": "2018-05-22T16:22:24.000Z",
+                    "cooked": "\u003cp\u003eEdit the first post in this topic to change the contents of the FAQ/Guidelines page.\u003c/p\u003e",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "updated_at": "2018-05-22T16:22:24.000Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "topic_id": 5,
+                    "topic_slug": "faq-guidelines",
+                    "display_username": "system",
+                    "can_edit": false,
+                    "read": true,
+                    "actions_summary": [],
+                    "user_id": -1
+                }
+                ],
+                "stream": [
+                6,
+                7
+                ]
+            },
+            "tags": [],
+            "id": 5,
+            "title": "FAQ/Guidelines",
+            "fancy_title": "FAQ/Guidelines",
+            "posts_count": 2,
+            "created_at": "2018-05-22T16:22:23.808Z",
+            "views": 1,
+            "reply_count": 0,
+            "last_posted_at": "2018-05-22T16:22:24.000Z",
+            "visible": true,
+            "archetype": "regular",
+            "slug": "faq-guidelines",
+            "category_id": 3,
+            "user_id": -1,
+            "pinned": false,
+            "actions_summary": [
+                {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+                },
+                {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+                },
+                {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+                }
+            ],
+            "bookmarked": null
+        },
+        {
+            "post_stream": {
+                "posts": [
+                {
+                    "id": 11,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/user_avatar/discourse.test/system/{size}/2_1.png",
+                    "created_at": "2018-05-22T16:22:24.737Z",
+                    "cooked": "\u003cp\u003etest\u003cbr\u003e\nThe first paragraph of this pinned topic will be visible as a welcome message to all new visitors on your homepage. It’s important!\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eEdit this\u003c/strong\u003e into a brief description of your community:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eWho is it for?\u003c/li\u003e\n\u003cli\u003eWhat can they find here?\u003c/li\u003e\n\u003cli\u003eWhy should they come here?\u003c/li\u003e\n\u003cli\u003eWhere can they read more (links, resources, etc)?\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cimg src=\"//discourse.test/images/welcome/discourse-edit-post-animated.gif\" width=\"508\" height=\"106\"\u003e\u003c/p\u003e\n\u003cp\u003eYou may want to close this topic via the admin \u003cimg src=\"//discourse.test/images/emoji/twitter/wrench.png?v=5\" title=\":wrench:\" class=\"emoji\" alt=\":wrench:\"\u003e (at the upper right and bottom), so that replies don’t pile up on an announcement.\u003c/p\u003e",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "updated_at": "2018-05-22T16:34:22.879Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "topic_id": 8,
+                    "topic_slug": "welcome-to-discourse",
+                    "display_username": "system",
+                    "can_edit": false,
+                    "read": true,
+                    "actions_summary": [],
+                    "user_id": -1
+                },
+                {
+                    "id": 17,
+                    "name": null,
+                    "username": "Opvolger",
+                    "avatar_template": "/letter_avatar_proxy/v2/letter/o/b5a626/{size}.png",
+                    "created_at": "2018-06-01T13:24:28.784Z",
+                    "cooked": "\u003caside class=\"onebox twitterstatus\"\u003e\n  \u003cheader class=\"source\"\u003e\n      \u003ca href=\"https://twitter.com/ChampionsLeague/status/988905706295300096\" target=\"_blank\"\u003etwitter.com\u003c/a\u003e\n  \u003c/header\u003e\n  \u003carticle class=\"onebox-body\"\u003e\n    \u003cimg src=\"//discourse.test/uploads/default/original/1X/7238bef8230d0eef751296d2c478d545d4a67104.jpg\" class=\"thumbnail onebox-avatar\" width=\"\" height=\"\"\u003e\n\u003ch4\u003e\n  \u003ca href=\"https://twitter.com/ChampionsLeague/status/988905706295300096\" target=\"_blank\"\u003e\n    UEFA Champions League (ChampionsLeague)\n  \u003c/a\u003e\n\u003c/h4\u003e\n\n\u003cdiv class=\"tweet\"\u003e360 ✅ Pinpoint pass ✅\n\n@GWijnaldum 👏👏👏\n\n#UCL https://t.co/1WyCYMyXYU\u003c/div\u003e\n\n\u003cdiv class=\"date\"\u003e\n  \u003ca href=\"https://twitter.com/ChampionsLeague/status/988905706295300096\" target=\"_blank\"\u003e15:21 - 24 апр. 2018 г.\u003c/a\u003e\n\u003c/div\u003e\n\n  \u003c/article\u003e\n  \u003cdiv class=\"onebox-metadata\"\u003e\n    \n    \n  \u003c/div\u003e\n  \u003cdiv style=\"clear: both\"\u003e\u003c/div\u003e\n\u003c/aside\u003e\n",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "updated_at": "2018-06-01T13:24:28.784Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "topic_id": 8,
+                    "topic_slug": "welcome-to-discourse",
+                    "display_username": null,
+                    "can_edit": false,
+                    "read": true,
+                    "actions_summary": [],
+                    "user_id": 1
+                }
+                ],
+                "stream": [
+                11,
+                17
+                ]
+            },
+            "tags": [],
+            "id": 8,
+            "title": "Welcome to Discourse",
+            "fancy_title": "Welcome to Discourse",
+            "posts_count": 2,
+            "created_at": "2018-05-22T16:22:24.688Z",
+            "views": 16,
+            "reply_count": 0,
+            "last_posted_at": "2018-06-01T13:24:28.784Z",
+            "visible": true,
+            "archetype": "regular",
+            "slug": "welcome-to-discourse",
+            "category_id": 1,
+            "user_id": -1,
+            "pinned": true,
+            "actions_summary": [
+                {
+                "id": 4,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+                },
+                {
+                "id": 8,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+                },
+                {
+                "id": 7,
+                "count": 0,
+                "hidden": false,
+                "can_act": false
+                }
+            ],
+            "bookmarked": null
+        }
+    ],
+    
+    "posts": [
+        {
+            "id": 6,
+            "name": "system",
+            "username": "system",
+            "avatar_template": "/user_avatar/discourse.test/system/{size}/2_1.png",
+            "created_at": "2018-05-22T16:22:23.856Z",
+            "cooked": "\u003cp\u003e\u003ca name=\"civilized\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#civilized\"\u003eThis is a Civilized Place for Public Discussion\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003ePlease treat this discussion forum with the same respect you would a public park.  We, too, are a shared community resource — a place to share skills, knowledge and interests through ongoing conversation.\u003c/p\u003e\n\u003cp\u003eThese are not hard and fast rules, merely guidelines to aid the human judgment of our community and keep this a clean and well-lighted place for civilized public discourse.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"improve\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#improve\"\u003eImprove the Discussion\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eHelp us make this a great place for discussion by always working to improve the discussion in some way, however small. If you are not sure your post adds to the conversation, think over what you want to say and try again later.\u003c/p\u003e\n\u003cp\u003eThe topics discussed here matter to us, and we want you to act as if they matter to you, too. Be respectful of the topics and the people discussing them, even if you disagree with some of what is being said.\u003c/p\u003e\n\u003cp\u003eOne way to improve the discussion is by discovering ones that are already happening. Spend time browsing the topics here before replying or starting your own, and you’ll have a better chance of meeting others who share your interests.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"agreeable\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#agreeable\"\u003eBe Agreeable, Even When You Disagree\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eYou may wish to respond to something by disagreeing with it. That’s fine. But remember to \u003cem\u003ecriticize ideas, not people\u003c/em\u003e. Please avoid:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eName-calling\u003c/li\u003e\n\u003cli\u003eAd hominem attacks\u003c/li\u003e\n\u003cli\u003eResponding to a post’s tone instead of its actual content\u003c/li\u003e\n\u003cli\u003eKnee-jerk contradiction\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eInstead, provide reasoned counter-arguments that improve the conversation.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"participate\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#participate\"\u003eYour Participation Counts\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eThe conversations we have here set the tone for every new arrival. Help us influence the future of this community by choosing to engage in discussions that make this forum an interesting place to be — and avoiding those that do not.\u003c/p\u003e\n\u003cp\u003eDiscourse provides tools that enable the community to collectively identify the best (and worst) contributions: bookmarks, likes, flags, replies, edits, and so forth. Use these tools to improve your own experience, and everyone else’s, too.\u003c/p\u003e\n\u003cp\u003eLet’s leave our community better than we found it.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"flag-problems\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#flag-problems\"\u003eIf You See a Problem, Flag It\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eModerators have special authority; they are responsible for this forum. But so are you. With your help, moderators can be community facilitators, not just janitors or police.\u003c/p\u003e\n\u003cp\u003eWhen you see bad behavior, don’t reply. It encourages the bad behavior by acknowledging it, consumes your energy, and wastes everyone’s time. \u003cem\u003eJust flag it\u003c/em\u003e. If enough flags accrue, action will be taken, either automatically or by moderator intervention.\u003c/p\u003e\n\u003cp\u003eIn order to maintain our community, moderators reserve the right to remove any content and any user account for any reason at any time. Moderators do not preview new posts; the moderators and site operators take no responsibility for any content posted by the community.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"be-civil\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#be-civil\"\u003eAlways Be Civil\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eNothing sabotages a healthy conversation like rudeness:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eBe civil. Don’t post anything that a reasonable person would consider offensive, abusive, or hate speech.\u003c/li\u003e\n\u003cli\u003eKeep it clean. Don’t post anything obscene or sexually explicit.\u003c/li\u003e\n\u003cli\u003eRespect each other. Don’t harass or grief anyone, impersonate people, or expose their private information.\u003c/li\u003e\n\u003cli\u003eRespect our forum. Don’t post spam or otherwise vandalize the forum.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThese are not concrete terms with precise definitions — avoid even the \u003cem\u003eappearance\u003c/em\u003e of any of these things. If you’re unsure, ask yourself how you would feel if your post was featured on the front page of the New York Times.\u003c/p\u003e\n\u003cp\u003eThis is a public forum, and search engines index these discussions. Keep the language, links, and images safe for family and friends.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"keep-tidy\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#keep-tidy\"\u003eKeep It Tidy\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eMake the effort to put things in the right place, so that we can spend more time discussing and less cleaning up. So:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eDon’t start a topic in the wrong category.\u003c/li\u003e\n\u003cli\u003eDon’t cross-post the same thing in multiple topics.\u003c/li\u003e\n\u003cli\u003eDon’t post no-content replies.\u003c/li\u003e\n\u003cli\u003eDon’t divert a topic by changing it midstream.\u003c/li\u003e\n\u003cli\u003eDon’t sign your posts — every post has your profile information attached to it.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eRather than posting “+1” or “Agreed”, use the Like button. Rather than taking an existing topic in a radically different direction, use Reply as a Linked Topic.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"stealing\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#stealing\"\u003ePost Only Your Own Stuff\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eYou may not post anything digital that belongs to someone else without permission. You may not post descriptions of, links to, or methods for stealing someone’s intellectual property (software, video, audio, images), or for breaking any other law.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"power\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#power\"\u003ePowered by You\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eThis site is operated by your \u003ca href=\"/about\"\u003efriendly local staff\u003c/a\u003e and \u003cem\u003eyou\u003c/em\u003e, the community. If you have any further questions about how things should work here, open a new topic in the \u003ca href=\"/c/site-feedback\"\u003esite feedback category\u003c/a\u003e and let’s discuss! If there’s a critical or urgent issue that can’t be handled by a meta topic or flag, contact us via the \u003ca href=\"/about\"\u003estaff page\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"tos\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#tos\"\u003eTerms of Service\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eYes, legalese is boring, but we must protect ourselves – and by extension, you and your data – against unfriendly folks. We have a \u003ca href=\"/tos\"\u003eTerms of Service\u003c/a\u003e describing your (and our) behavior and rights related to content, privacy, and laws. To use this service, you must agree to abide by our \u003ca href=\"/tos\"\u003eTOS\u003c/a\u003e.\u003c/p\u003e",
+            "post_number": 1,
+            "post_type": 1,
+            "updated_at": "2018-07-27T15:41:12.848Z",
+            "reply_count": 0,
+            "reply_to_post_number": null,
+            "topic_id": 5,
+            "topic_slug": "faq-guidelines",
+            "display_username": "system",
+            "can_edit": false,
+            "read": true,
+            "actions_summary": [],
+            "user_id": -1
+        },
+        {
+            "id": 7,
+            "name": "system",
+            "username": "system",
+            "avatar_template": "/user_avatar/discourse.test/system/{size}/2_1.png",
+            "created_at": "2018-05-22T16:22:24.000Z",
+            "cooked": "\u003cp\u003eEdit the first post in this topic to change the contents of the FAQ/Guidelines page.\u003c/p\u003e",
+            "post_number": 2,
+            "post_type": 1,
+            "updated_at": "2018-05-22T16:22:24.000Z",
+            "reply_count": 0,
+            "reply_to_post_number": null,
+            "topic_id": 5,
+            "topic_slug": "faq-guidelines",
+            "display_username": "system",
+            "can_edit": false,
+            "read": true,
+            "actions_summary": [],
+            "user_id": -1
+        },
+        {
+            "id": 11,
+            "name": "system",
+            "username": "system",
+            "avatar_template": "/user_avatar/discourse.test/system/{size}/2_1.png",
+            "created_at": "2018-05-22T16:22:24.737Z",
+            "cooked": "\u003cp\u003etest\u003cbr\u003e\nThe first paragraph of this pinned topic will be visible as a welcome message to all new visitors on your homepage. It’s important!\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eEdit this\u003c/strong\u003e into a brief description of your community:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eWho is it for?\u003c/li\u003e\n\u003cli\u003eWhat can they find here?\u003c/li\u003e\n\u003cli\u003eWhy should they come here?\u003c/li\u003e\n\u003cli\u003eWhere can they read more (links, resources, etc)?\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cimg src=\"//discourse.test/images/welcome/discourse-edit-post-animated.gif\" width=\"508\" height=\"106\"\u003e\u003c/p\u003e\n\u003cp\u003eYou may want to close this topic via the admin \u003cimg src=\"//discourse.test/images/emoji/twitter/wrench.png?v=5\" title=\":wrench:\" class=\"emoji\" alt=\":wrench:\"\u003e (at the upper right and bottom), so that replies don’t pile up on an announcement.\u003c/p\u003e",
+            "post_number": 1,
+            "post_type": 1,
+            "updated_at": "2018-05-22T16:34:22.879Z",
+            "reply_count": 0,
+            "reply_to_post_number": null,
+            "topic_id": 8,
+            "topic_slug": "welcome-to-discourse",
+            "display_username": "system",
+            "can_edit": false,
+            "read": true,
+            "actions_summary": [],
+            "user_id": -1
+        },
+        {
+            "id": 17,
+            "name": null,
+            "username": "Opvolger",
+            "avatar_template": "/letter_avatar_proxy/v2/letter/o/b5a626/{size}.png",
+            "created_at": "2018-06-01T13:24:28.784Z",
+            "cooked": "\u003caside class=\"onebox twitterstatus\"\u003e\n  \u003cheader class=\"source\"\u003e\n      \u003ca href=\"https://twitter.com/ChampionsLeague/status/988905706295300096\" target=\"_blank\"\u003etwitter.com\u003c/a\u003e\n  \u003c/header\u003e\n  \u003carticle class=\"onebox-body\"\u003e\n    \u003cimg src=\"//discourse.test/uploads/default/original/1X/7238bef8230d0eef751296d2c478d545d4a67104.jpg\" class=\"thumbnail onebox-avatar\" width=\"\" height=\"\"\u003e\n\u003ch4\u003e\n  \u003ca href=\"https://twitter.com/ChampionsLeague/status/988905706295300096\" target=\"_blank\"\u003e\n    UEFA Champions League (ChampionsLeague)\n  \u003c/a\u003e\n\u003c/h4\u003e\n\n\u003cdiv class=\"tweet\"\u003e360 ✅ Pinpoint pass ✅\n\n@GWijnaldum 👏👏👏\n\n#UCL https://t.co/1WyCYMyXYU\u003c/div\u003e\n\n\u003cdiv class=\"date\"\u003e\n  \u003ca href=\"https://twitter.com/ChampionsLeague/status/988905706295300096\" target=\"_blank\"\u003e15:21 - 24 апр. 2018 г.\u003c/a\u003e\n\u003c/div\u003e\n\n  \u003c/article\u003e\n  \u003cdiv class=\"onebox-metadata\"\u003e\n    \n    \n  \u003c/div\u003e\n  \u003cdiv style=\"clear: both\"\u003e\u003c/div\u003e\n\u003c/aside\u003e\n",
+            "post_number": 2,
+            "post_type": 1,
+            "updated_at": "2018-06-01T13:24:28.784Z",
+            "reply_count": 0,
+            "reply_to_post_number": null,
+            "topic_id": 8,
+            "topic_slug": "welcome-to-discourse",
+            "display_username": null,
+            "can_edit": false,
+            "read": true,
+            "actions_summary": [],
+            "user_id": 1
+        }
+    ],
+
+    "posts_by_topic": [
+        {
+            "post_stream": {
+                "posts": [
+                {
+                    "id": 6,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/user_avatar/discourse.test/system/{size}/2_1.png",
+                    "created_at": "2018-05-22T16:22:23.856Z",
+                    "cooked": "\u003cp\u003e\u003ca name=\"civilized\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#civilized\"\u003eThis is a Civilized Place for Public Discussion\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003ePlease treat this discussion forum with the same respect you would a public park.  We, too, are a shared community resource — a place to share skills, knowledge and interests through ongoing conversation.\u003c/p\u003e\n\u003cp\u003eThese are not hard and fast rules, merely guidelines to aid the human judgment of our community and keep this a clean and well-lighted place for civilized public discourse.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"improve\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#improve\"\u003eImprove the Discussion\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eHelp us make this a great place for discussion by always working to improve the discussion in some way, however small. If you are not sure your post adds to the conversation, think over what you want to say and try again later.\u003c/p\u003e\n\u003cp\u003eThe topics discussed here matter to us, and we want you to act as if they matter to you, too. Be respectful of the topics and the people discussing them, even if you disagree with some of what is being said.\u003c/p\u003e\n\u003cp\u003eOne way to improve the discussion is by discovering ones that are already happening. Spend time browsing the topics here before replying or starting your own, and you’ll have a better chance of meeting others who share your interests.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"agreeable\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#agreeable\"\u003eBe Agreeable, Even When You Disagree\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eYou may wish to respond to something by disagreeing with it. That’s fine. But remember to \u003cem\u003ecriticize ideas, not people\u003c/em\u003e. Please avoid:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eName-calling\u003c/li\u003e\n\u003cli\u003eAd hominem attacks\u003c/li\u003e\n\u003cli\u003eResponding to a post’s tone instead of its actual content\u003c/li\u003e\n\u003cli\u003eKnee-jerk contradiction\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eInstead, provide reasoned counter-arguments that improve the conversation.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"participate\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#participate\"\u003eYour Participation Counts\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eThe conversations we have here set the tone for every new arrival. Help us influence the future of this community by choosing to engage in discussions that make this forum an interesting place to be — and avoiding those that do not.\u003c/p\u003e\n\u003cp\u003eDiscourse provides tools that enable the community to collectively identify the best (and worst) contributions: bookmarks, likes, flags, replies, edits, and so forth. Use these tools to improve your own experience, and everyone else’s, too.\u003c/p\u003e\n\u003cp\u003eLet’s leave our community better than we found it.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"flag-problems\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#flag-problems\"\u003eIf You See a Problem, Flag It\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eModerators have special authority; they are responsible for this forum. But so are you. With your help, moderators can be community facilitators, not just janitors or police.\u003c/p\u003e\n\u003cp\u003eWhen you see bad behavior, don’t reply. It encourages the bad behavior by acknowledging it, consumes your energy, and wastes everyone’s time. \u003cem\u003eJust flag it\u003c/em\u003e. If enough flags accrue, action will be taken, either automatically or by moderator intervention.\u003c/p\u003e\n\u003cp\u003eIn order to maintain our community, moderators reserve the right to remove any content and any user account for any reason at any time. Moderators do not preview new posts; the moderators and site operators take no responsibility for any content posted by the community.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"be-civil\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#be-civil\"\u003eAlways Be Civil\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eNothing sabotages a healthy conversation like rudeness:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eBe civil. Don’t post anything that a reasonable person would consider offensive, abusive, or hate speech.\u003c/li\u003e\n\u003cli\u003eKeep it clean. Don’t post anything obscene or sexually explicit.\u003c/li\u003e\n\u003cli\u003eRespect each other. Don’t harass or grief anyone, impersonate people, or expose their private information.\u003c/li\u003e\n\u003cli\u003eRespect our forum. Don’t post spam or otherwise vandalize the forum.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThese are not concrete terms with precise definitions — avoid even the \u003cem\u003eappearance\u003c/em\u003e of any of these things. If you’re unsure, ask yourself how you would feel if your post was featured on the front page of the New York Times.\u003c/p\u003e\n\u003cp\u003eThis is a public forum, and search engines index these discussions. Keep the language, links, and images safe for family and friends.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"keep-tidy\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#keep-tidy\"\u003eKeep It Tidy\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eMake the effort to put things in the right place, so that we can spend more time discussing and less cleaning up. So:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eDon’t start a topic in the wrong category.\u003c/li\u003e\n\u003cli\u003eDon’t cross-post the same thing in multiple topics.\u003c/li\u003e\n\u003cli\u003eDon’t post no-content replies.\u003c/li\u003e\n\u003cli\u003eDon’t divert a topic by changing it midstream.\u003c/li\u003e\n\u003cli\u003eDon’t sign your posts — every post has your profile information attached to it.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eRather than posting “+1” or “Agreed”, use the Like button. Rather than taking an existing topic in a radically different direction, use Reply as a Linked Topic.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"stealing\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#stealing\"\u003ePost Only Your Own Stuff\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eYou may not post anything digital that belongs to someone else without permission. You may not post descriptions of, links to, or methods for stealing someone’s intellectual property (software, video, audio, images), or for breaking any other law.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"power\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#power\"\u003ePowered by You\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eThis site is operated by your \u003ca href=\"/about\"\u003efriendly local staff\u003c/a\u003e and \u003cem\u003eyou\u003c/em\u003e, the community. If you have any further questions about how things should work here, open a new topic in the \u003ca href=\"/c/site-feedback\"\u003esite feedback category\u003c/a\u003e and let’s discuss! If there’s a critical or urgent issue that can’t be handled by a meta topic or flag, contact us via the \u003ca href=\"/about\"\u003estaff page\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003e\u003ca name=\"tos\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"#tos\"\u003eTerms of Service\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eYes, legalese is boring, but we must protect ourselves – and by extension, you and your data – against unfriendly folks. We have a \u003ca href=\"/tos\"\u003eTerms of Service\u003c/a\u003e describing your (and our) behavior and rights related to content, privacy, and laws. To use this service, you must agree to abide by our \u003ca href=\"/tos\"\u003eTOS\u003c/a\u003e.\u003c/p\u003e",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "updated_at": "2018-07-27T15:41:12.848Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "topic_id": 5,
+                    "topic_slug": "faq-guidelines",
+                    "display_username": "system",
+                    "can_edit": false,
+                    "read": true,
+                    "actions_summary": [],
+                    "user_id": -1
+                },
+                {
+                    "id": 7,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/user_avatar/discourse.test/system/{size}/2_1.png",
+                    "created_at": "2018-05-22T16:22:24.000Z",
+                    "cooked": "\u003cp\u003eEdit the first post in this topic to change the contents of the FAQ/Guidelines page.\u003c/p\u003e",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "updated_at": "2018-05-22T16:22:24.000Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "topic_id": 5,
+                    "topic_slug": "faq-guidelines",
+                    "display_username": "system",
+                    "can_edit": false,
+                    "read": true,
+                    "actions_summary": [],
+                    "user_id": -1
+                }
+                ],
+                "stream": [
+                6,
+                7
+                ]
+            },
+            "id": 5
+        },
+        {
+            "post_stream": {
+                "posts": [
+                {
+                    "id": 11,
+                    "name": "system",
+                    "username": "system",
+                    "avatar_template": "/user_avatar/discourse.test/system/{size}/2_1.png",
+                    "created_at": "2018-05-22T16:22:24.737Z",
+                    "cooked": "\u003cp\u003etest\u003cbr\u003e\nThe first paragraph of this pinned topic will be visible as a welcome message to all new visitors on your homepage. It’s important!\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eEdit this\u003c/strong\u003e into a brief description of your community:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eWho is it for?\u003c/li\u003e\n\u003cli\u003eWhat can they find here?\u003c/li\u003e\n\u003cli\u003eWhy should they come here?\u003c/li\u003e\n\u003cli\u003eWhere can they read more (links, resources, etc)?\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cimg src=\"//discourse.test/images/welcome/discourse-edit-post-animated.gif\" width=\"508\" height=\"106\"\u003e\u003c/p\u003e\n\u003cp\u003eYou may want to close this topic via the admin \u003cimg src=\"//discourse.test/images/emoji/twitter/wrench.png?v=5\" title=\":wrench:\" class=\"emoji\" alt=\":wrench:\"\u003e (at the upper right and bottom), so that replies don’t pile up on an announcement.\u003c/p\u003e",
+                    "post_number": 1,
+                    "post_type": 1,
+                    "updated_at": "2018-05-22T16:34:22.879Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "topic_id": 8,
+                    "topic_slug": "welcome-to-discourse",
+                    "display_username": "system",
+                    "can_edit": false,
+                    "read": true,
+                    "actions_summary": [],
+                    "user_id": -1
+                },
+                {
+                    "id": 17,
+                    "name": null,
+                    "username": "Opvolger",
+                    "avatar_template": "/letter_avatar_proxy/v2/letter/o/b5a626/{size}.png",
+                    "created_at": "2018-06-01T13:24:28.784Z",
+                    "cooked": "\u003caside class=\"onebox twitterstatus\"\u003e\n  \u003cheader class=\"source\"\u003e\n      \u003ca href=\"https://twitter.com/ChampionsLeague/status/988905706295300096\" target=\"_blank\"\u003etwitter.com\u003c/a\u003e\n  \u003c/header\u003e\n  \u003carticle class=\"onebox-body\"\u003e\n    \u003cimg src=\"//discourse.test/uploads/default/original/1X/7238bef8230d0eef751296d2c478d545d4a67104.jpg\" class=\"thumbnail onebox-avatar\" width=\"\" height=\"\"\u003e\n\u003ch4\u003e\n  \u003ca href=\"https://twitter.com/ChampionsLeague/status/988905706295300096\" target=\"_blank\"\u003e\n    UEFA Champions League (ChampionsLeague)\n  \u003c/a\u003e\n\u003c/h4\u003e\n\n\u003cdiv class=\"tweet\"\u003e360 ✅ Pinpoint pass ✅\n\n@GWijnaldum 👏👏👏\n\n#UCL https://t.co/1WyCYMyXYU\u003c/div\u003e\n\n\u003cdiv class=\"date\"\u003e\n  \u003ca href=\"https://twitter.com/ChampionsLeague/status/988905706295300096\" target=\"_blank\"\u003e15:21 - 24 апр. 2018 г.\u003c/a\u003e\n\u003c/div\u003e\n\n  \u003c/article\u003e\n  \u003cdiv class=\"onebox-metadata\"\u003e\n    \n    \n  \u003c/div\u003e\n  \u003cdiv style=\"clear: both\"\u003e\u003c/div\u003e\n\u003c/aside\u003e\n",
+                    "post_number": 2,
+                    "post_type": 1,
+                    "updated_at": "2018-06-01T13:24:28.784Z",
+                    "reply_count": 0,
+                    "reply_to_post_number": null,
+                    "topic_id": 8,
+                    "topic_slug": "welcome-to-discourse",
+                    "display_username": null,
+                    "can_edit": false,
+                    "read": true,
+                    "actions_summary": [],
+                    "user_id": 1
+                }
+                ],
+                "stream": [
+                11,
+                17
+                ]
+            },
+            "id": 8
+        }
+    ]
+}

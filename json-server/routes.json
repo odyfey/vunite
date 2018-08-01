@@ -1,0 +1,4 @@
+{
+    "/t/:id.json": "/topics.json/:id",
+    "/t/:id/posts.json": "/posts_by_topic/:id"
+}
