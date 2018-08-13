@@ -1,0 +1,105 @@
+.new-discussion-dialog2 .el-form-item__label {
+    text-align: left !important;
+}
+.dn {
+    display: none;
+}
+
+.mob-sidebar-bg-cover {
+    position: fixed;
+    top: 52px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #2d3339;
+    padding: 15px 15px 0 15px;
+    z-index: 1600;
+}
+
+#sidebar {
+    flex: 2;
+    width: 190px;
+    min-width: 190px;
+    font-size: 14px;
+    padding-top: 30px;
+}
+#sidebar li.active > a,
+#mob-sidebar li.active > a {
+    transition: all 0.3s;
+    font-weight: bold;
+    color: #333;
+}
+#mob-sidebar li.active > a {
+    color: #555;
+}
+#sidebar ul.sub-categories li.active > a,
+#mob-sidebar ul.sub-categories li.active > a {
+    font-weight: bold;
+    color: #5e5e5e;
+    text-decoration: underline;
+}
+#mob-sidebar ul.sub-categories li.active > a {
+    color: #777;
+}
+.new-discussion {
+    margin-bottom: 20px;
+}
+.new-discussion button {
+    color: #fff;
+    background: #e7672e;
+    border: 0;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+.new-discussion button:hover {
+    opacity: 0.8;
+}
+
+.text-button {
+    width: 100%;
+    display: flex;
+    margin: 12px 0;
+    flex-direction: column;
+    justify-content: center;
+}
+.text-button > a {
+    display: flex;
+    color: #667d99;
+    transition: all 0.4s;
+    align-items: center;
+}
+#mob-sidebar .new-discussion {
+    margin-bottom: 0;
+    margin-top: 40px;
+}
+#mob-sidebar .text-button a {
+    color: #fff;
+    font-size: 16px;
+}
+.text-button > a:hover {
+    color: #e7672e;
+}
+.text-button .icon {
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    margin-right: 12px;
+}
+ul.sub-categories {
+    margin: 0 28px;
+}
+ul.sub-categories .text-button {
+    margin: 6px 0;
+    font-size: 14px;
+}
+.separator {
+    height: 1px;
+    margin: 8px 0;
+}
+.color-icon {
+    display: inline-block;
+    background: #e7edf3;
+    border-radius: 4px;
+}

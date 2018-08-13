@@ -1,0 +1,121 @@
+.container {
+    display: flex;
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.spinner {
+    text-align: center;
+    padding: 10vh 0;
+}
+.topic-main {
+    flex: 8;
+}
+.topic-main > h1 {
+    font-size: 22px;
+}
+.topic-main > h1,
+.topic-main > ul {
+    width: 100%;
+}
+.topic-controls {
+    flex: 2;
+}
+.post {
+    display: flex;
+    padding: 20px 0;
+    border-bottom: 1px solid #e7edf3;
+}
+.post .avatar {
+    width: 85px;
+}
+.post .avatar img {
+    border-radius: 24px;
+    border: 1px solid #ececec;
+}
+.post .contents {
+    width: 100%;
+    overflow: auto;
+}
+.post-header {
+    font-size: 14px;
+}
+.post-header .username {
+    font-weight: bold;
+    margin-right: 10px;
+}
+.post-header .datetime {
+    color: #667d99;
+}
+.post-header .floor {
+    float: right;
+}
+.post-body {
+    padding-top: 10px;
+    font-family: "PingFang SC", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #222;
+    line-height: 1.8;
+}
+.post-summary {
+    margin: 20px 0 0 0;
+}
+.post-summary a {
+    display: inline-block;
+    width: 35px;
+    transition: all 0.3s;
+    color: #2c3e50;
+    cursor: pointer;
+}
+.post-summary a:hover,
+.post-summary a.liked,
+.post-summary a.bookmarked {
+    color: #e7672e;
+}
+.post-summary-right-controls {
+    width: 160px;
+    float: right;
+    text-align: right;
+}
+.post-summary-right-controls a {
+    width: 50px;
+}
+.share-popover-copybtn {
+    margin-top: 10px;
+}
+
+/**
+ * right controls styles
+ */
+.topic-controls button {
+    width: 100%;
+    display: block;
+    margin: 0 0 10px 0;
+}
+/**
+ * editor css
+ */
+.reply-box {
+    padding-top: 20px;
+}
+.reply-header {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.reply-footer {
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+    .container {
+        margin-left: 0;
+    }
+    #post0 .contents {
+        margin-left: -85px;
+    }
+    #post0 .contents .post-header {
+        line-height: 48px;
+        padding-left: 85px;
+    }
+}

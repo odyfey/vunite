@@ -1,0 +1,40 @@
+.container {
+    padding: 30px;
+}
+.list-item {
+    display: flex;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+.list-item.read {
+    opacity: 0.55;
+}
+.list-item:hover {
+    background: rgb(231, 237, 243);
+    opacity: 1;
+}
+.item-avatar {
+    flex: 1;
+}
+.item-avatar img {
+    height: 36px;
+    width: 36px;
+    border-radius: 18px;
+}
+.item-main {
+    flex: 14;
+}
+.item-main h3 {
+    color: #667d99;
+    font-size: 16px;
+    font-weight: bold;
+}
+.item-main p {
+    color: #787878;
+}
+.item-right {
+    flex: 3;
+    text-align: right;
+}

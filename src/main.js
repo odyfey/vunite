@@ -1,27 +1,27 @@
-import Vue from 'vue'
-import VueAffix from 'vue-affix'
-import VueScrollTo from 'vue-scrollto'
-import * as ElementUI from 'element-ui'
+import Vue from "vue"
+import VueAffix from "vue-affix"
+import VueScrollTo from "vue-scrollto"
+import * as ElementUI from "element-ui"
 
-import axios from 'axios'
-import moment from 'moment'
-import fontawesome from '@fortawesome/fontawesome'
-import faRegular from '@fortawesome/fontawesome-free-regular'
-import faSolid from '@fortawesome/fontawesome-free-solid'
+import axios from "axios"
+import moment from "moment"
+import fontawesome from "@fortawesome/fontawesome"
+import faRegular from "@fortawesome/fontawesome-free-regular"
+import faSolid from "@fortawesome/fontawesome-free-solid"
 
-import 'element-ui/lib/theme-chalk/index.css'
-import 'element-ui/lib/theme-chalk/display.css'
-import 'mavon-editor/dist/css/index.css'
-import '@/styles/normalize.css'
-import '@/styles/post.css'
-import '@/styles/editor.css'
+import "element-ui/lib/theme-chalk/index.css"
+import "element-ui/lib/theme-chalk/display.css"
+import "mavon-editor/dist/css/index.css"
+import "@/styles/normalize.css"
+import "@/styles/post.css"
+import "@/styles/editor.css"
 
-import App from './App'
-import { createRouter } from './router'
-import { createStore } from './store'
-import { createI18n } from './i18n'
-import { sync } from 'vuex-router-sync'
-import { config } from './config'
+import App from "./App/"
+import { createRouter } from "./router"
+import { createStore } from "./store"
+import { createI18n } from "./i18n"
+import { sync } from "vuex-router-sync"
+import { config } from "./config"
 
 fontawesome.library.add(faRegular)
 fontawesome.library.add(faSolid)
@@ -43,20 +43,18 @@ export function createApp({ isClient }) {
     const httpOpts = {
         baseURL: config.discourse.backend,
         headers: {
-            'X-Requested-With': 'XMLHttpRequest',
+            "X-Requested-With": "XMLHttpRequest"
         },
-        responseType: 'json',
-        withCredentials: true,
+        responseType: "json",
+        withCredentials: true
     }
 
     let _http = axios.create(httpOpts)
     _http.interceptors.request.use(request => {
-        const token = store.getters['bearer']
+        const token = store.getters["bearer"]
 
-        if (token)
-            request.headers.common['Authorization'] = `Bearer ${token}`
-        else
-            delete request.headers.common['Authorization']
+        if (token) request.headers.common["Authorization"] = `Bearer ${token}`
+        else delete request.headers.common["Authorization"]
 
         return request
     })
