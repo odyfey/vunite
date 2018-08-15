@@ -103,5 +103,15 @@ module.exports = {
                   filename: "common.[chunkhash].css"
               })
           ]
-        : [new VueLoaderPlugin(), new FriendlyErrorsPlugin()]
+        : [
+              new VueLoaderPlugin(),
+              new FriendlyErrorsPlugin(),
+              // prettier-ignore
+              new webpack.DefinePlugin({
+                'process.env': Object.keys(process.env).reduce(function(o, k) {
+                    o[k] = JSON.stringify(process.env[k])
+                    return o
+                }, {})
+            })
+          ]
 }
