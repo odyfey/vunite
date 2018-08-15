@@ -1,6 +1,6 @@
 import NoSSR from "vue-no-ssr"
 import FontAwesomeIcon from "@fortawesome/vue-fontawesome"
-import { mapGetters, mapActions } from "vuex"
+import { mapState, mapGetters, mapActions } from "vuex"
 import NewDiscussion from "../NewDiscussion/"
 
 export default {
@@ -16,9 +16,9 @@ export default {
             default: false
         }
     },
+
     data() {
         return {
-            subCategories: [],
             newDiscussionDialogVisible: false,
             newDiscussionDialogVisible2: false,
             postingNew: false,
@@ -26,10 +26,20 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(["allCategories"])
+        ...mapState(["subCategories"]),
+
+        ...mapGetters({
+            apiKey: "User/apiKey",
+            allCategories: "allCategories"
+        })
     },
     methods: {
-        ...mapActions(["getTags", "getCategories", "findCategoryBySlug"]),
+        ...mapActions([
+            "getTags",
+            "getCategories",
+            "findCategoryBySlug",
+            "checkSubCategories"
+        ]),
         categoryName(item) {
             return item.slug ? item.slug : `${item.id}-category`
         },
@@ -67,115 +77,98 @@ export default {
                 return false
             }
         },
-        async postNewDiscussion() {
-            var { data } = this.$refs.newDiscussionForm
+
+        postDiscussionValidate(data) {
+            let result = true
 
             if (!data.topic) {
                 this.$message({
                     type: "error",
                     message: this.$t("error.discussionTitleEmpty")
                 })
-                return
-            }
-            if (!data.category || data.category.length === 0) {
+                result = false
+            } else if (!data.category || data.category.length === 0) {
                 this.$message({
                     type: "error",
                     message: this.$t("error.categoryNotSelected")
                 })
-                return
-            }
-            if (!data.contents) {
+                result = false
+            } else if (!data.contents) {
                 this.$message({
                     type: "error",
                     message: this.$t("error.contentsEmpty")
                 })
-                return
+                result = false
             }
 
-            this.postingNew = true
-            var response = await this.$http.post("/posts", {
-                raw: data.contents,
-                title: data.topic,
-                unlist_topic: false,
-                category: data.category.slice(-1)[0],
-                is_warning: false,
-                archetype: "regular",
-                typing_duration_msecs: 3800,
-                tags: data.tags,
-                nested_post: true
+            return result
+        },
+
+        async postDiscussionRequest(data) {
+            const form = new FormData()
+            form.append("api_key", this.apiKey)
+            form.append("raw", data.contents)
+            form.append("title", data.topic)
+            form.append("unlist_topic", false)
+            form.append("category", data.category.slice(-1)[0])
+            form.append("is_warning", false)
+            form.append("archetype", "regular")
+            form.append("typing_duration_msecs", 3800)
+            form.append("tags", data.tags)
+            form.append("nested_post", true)
+
+            return await this.$http.post(`posts?api_key=${this.apiKey}`, form, {
+                "content-type": `multipart/form-data; boundary=${
+                    form._boundary
+                }`
             })
-            this.postingNew = false
-            if (response.data.success) {
-                this.newDiscussionDialogVisible = false
-                this.$router.push({
-                    path: `/topic/${response.data.post.topic_id}`
-                })
-            } else {
-                this.$message({
-                    type: "error",
-                    message: this.$t("error.serverIsBusy")
-                })
-                console.error("post occurs error", response)
+        },
+
+        async postNewDiscussion() {
+            var { data } = this.$refs.newDiscussionForm
+
+            if (this.postDiscussionValidate(data)) {
+                this.postingNew = true
+                const response = await this.postDiscussionRequest(data)
+                this.postingNew = false
+
+                if (response.data.success) {
+                    this.newDiscussionDialogVisible = false
+                    this.$router.push({
+                        path: `/topic/${response.data.post.topic_id}`
+                    })
+                } else {
+                    this.$message({
+                        type: "error",
+                        message: this.$t("error.serverIsBusy")
+                    })
+                    console.error("post occurs error", response)
+                }
             }
         },
         async postNewDiscussion2() {
             var { data } = this.$refs.newDiscussionForm2
-            if (!data.topic) {
-                this.$message({
-                    type: "error",
-                    message: this.$t("error.discussionTitleEmpty")
-                })
-                return
-            }
-            if (!data.category || data.category.length === 0) {
-                this.$message({
-                    type: "error",
-                    message: this.$t("error.categoryNotSelected")
-                })
-                return
-            }
-            if (!data.contents) {
-                this.$message({
-                    type: "error",
-                    message: this.$t("error.contentsEmpty")
-                })
-                return
-            }
 
-            this.postingNew2 = true
-            var response = await this.$http.post("/posts", {
-                raw: data.contents,
-                title: data.topic,
-                unlist_topic: false,
-                category: data.category.slice(-1)[0],
-                is_warning: false,
-                archetype: "regular",
-                typing_duration_msecs: 3800,
-                tags: data.tags,
-                nested_post: true
-            })
-            this.postingNew2 = false
-            if (response.data.success) {
-                this.newDiscussionDialogVisible2 = false
-                this.$router.push({
-                    path: `/topic/${response.data.post.id}`
-                })
-            } else {
-                this.$message({
-                    type: "error",
-                    message: this.$t("error.serverIsBusy")
-                })
-                console.error("post occurs error", response)
+            if (this.postDiscussionValidate(data)) {
+                this.postingNew2 = true
+                const response = await this.postDiscussionRequest(data)
+                this.postingNew2 = false
+
+                if (response.data.success) {
+                    this.newDiscussionDialogVisible2 = false
+                    this.$router.push({
+                        path: `/topic/${response.data.post.id}`
+                    })
+                } else {
+                    this.$message({
+                        type: "error",
+                        message: this.$t("error.serverIsBusy")
+                    })
+                    console.error("post occurs error", response)
+                }
             }
         },
-        async checkSubCategories(route = this.$route) {
-            this.subCategories = []
-            var curr = await this.findCategoryBySlug(route.params.id)
-            if (!curr || !curr.has_children || !curr.id) {
-                return
-            }
-            this.subCategories = await this.getCategories(curr.id)
-        },
+
         onNewDiscussionDialogOpen() {
             document.body.style.position = "fixed"
         },
@@ -186,13 +179,14 @@ export default {
             this.$emit("close-mob-menu")
         }
     },
+    //todo: asyncData
     async mounted() {
         await Promise.all([this.getCategories(), this.getTags()])
-        await this.checkSubCategories()
+        await this.checkSubCategories(this.$route.params.id)
     },
     watch: {
         async $route(to, from) {
-            await this.checkSubCategories(to)
+            await this.checkSubCategories(to.params.id)
         }
     }
 }
