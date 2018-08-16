@@ -50,6 +50,7 @@ export default {
             })
         },
         ...mapGetters({
+            apiKey: "User/apiKey",
             username: "User/username"
         })
     },
@@ -125,31 +126,35 @@ export default {
                     tags: discussion.data.tags
                 })
             }
-            this.$http
-                .put(`/posts/${discussion.post.id}`, {
-                    post: {
-                        raw: discussion.contents
-                    }
+
+            const form = new FormData()
+            form.append("api_key", this.apiKey)
+            form.append("raw", discussion.contents)
+
+            try {
+                await this.$http.put(`/posts/${discussion.post.id}`, form, {
+                    "content-type": `multipart/form-data; boundary=${
+                        form._boundary
+                    }`
                 })
-                .then(response => {
-                    this.editPostDialogVisible = false
-                    this.$message({
-                        type: "success",
-                        message: this.$t("success.edited")
-                    })
-                    this.reload()
+
+                this.editPostDialogVisible = false
+                this.$message({
+                    type: "success",
+                    message: this.$t("success.edited")
                 })
-                .catch(error => {
-                    if (
-                        error.response &&
-                        error.response.data &&
-                        error.response.data.errors
-                    ) {
-                        this.$alert(error.response.data.errors.join(""))
-                    } else {
-                        this.$alert(this.$t("error.unknown"))
-                    }
-                })
+                this.reload()
+            } catch (error) {
+                if (
+                    error.response &&
+                    error.response.data &&
+                    error.response.data.errors
+                ) {
+                    this.$alert(error.response.data.errors.join(""))
+                } else {
+                    this.$alert(this.$t("error.unknown"))
+                }
+            }
         },
         async toggleLike(post) {
             if (post.isLiked) {
@@ -157,17 +162,20 @@ export default {
                     message: this.$t("warning.alreadyLiked")
                 })
             } else {
+                const form = new FormData()
+                form.append("api_key", this.apiKey)
+                form.append("id", post.id)
+                form.append("post_action_type_id", 2) // for like, is 2
+
+                await this.$http.post("post_actions", form, {
+                    "content-type": `multipart/form-data; boundary=${
+                        form._boundary
+                    }`
+                })
+
                 post.isLiked = true
                 post.likes += 1
                 this.$forceUpdate()
-                var res = await this.$http.request({
-                    method: "post",
-                    url: "/post_actions",
-                    data: {
-                        id: post.id,
-                        post_action_type_id: 2 // for like, is 2
-                    }
-                })
             }
         },
         replyWith(item) {
@@ -184,7 +192,9 @@ export default {
         },
         async sendReply() {
             var eidtor = this.$refs.replyEditor
-            var data = {
+
+            const data = {
+                api_key: this.apiKey,
                 raw: eidtor.value,
                 unlist_topic: false,
                 category: this.rawTopic.category_id,
@@ -193,38 +203,45 @@ export default {
                 archetype: this.rawTopic.archetype,
                 nested_post: false
             }
+
             if (this.replyToPostId) {
                 data.reply_to_post_number = this.replyToPostId
                 data.nested_post = true
             }
 
+            const form = new FormData()
+            for (const key in data) form.append(key, data[key])
+
             this.$http
                 .request({
                     method: "post",
                     url: "/posts",
-                    data
+                    data: form,
+                    headers: {
+                        "content-type": `multipart/form-data; boundary=${
+                            form._boundary
+                        }`
+                    }
                 })
                 .then(response => {
-                    let resultPost
-                    if (this.replyToPostId && response.data.success) {
-                        resultPost = response.data.post
-                    } else {
-                        resultPost = response.data
+                    if (response.data.success) {
+                        let resultPost = response.data.post
+
+                        // hack: 发表回复后图片路径替换。discourse会自动替换，但posts不会
+                        resultPost.cooked = resultPost.cooked.replace(
+                            /<img src="(\S+)"/g,
+                            '<img src="//discourse.test$1"'
+                        )
+                        // bug-fix: 原评论数没同步，导致无限加载
+                        this.rawTopic.posts_count++
+                        this.posts.push(resultPost)
+                        this.contents = " "
+                        // hack: 发表回复后清空编辑器
+                        this.$nextTick(() => {
+                            this.contents = ""
+                        })
+                        this.replyToPostId = null
                     }
-                    // hack: 发表回复后图片路径替换。discourse会自动替换，但posts不会
-                    resultPost.cooked = resultPost.cooked.replace(
-                        /<img src="(\S+)"/g,
-                        '<img src="//discourse.test$1"'
-                    )
-                    // bug-fix: 原评论数没同步，导致无限加载
-                    this.rawTopic.posts_count++
-                    this.posts.push(resultPost)
-                    this.contents = " "
-                    // hack: 发表回复后清空编辑器
-                    this.$nextTick(() => {
-                        this.contents = ""
-                    })
-                    this.replyToPostId = null
                 })
                 .catch(error => {
                     if (
@@ -305,14 +322,13 @@ export default {
             post.bookmarked = val
             this.$forceUpdate()
 
-            var data = new FormData()
-            data.set("bookmarked", post.bookmarked)
+            const data = new FormData()
+            data.append("api_key", this.apiKey)
+            data.append("bookmarked", post.bookmarked)
             await this.$http.put(`/posts/${post.id}/bookmark`, data, {
-                config: {
-                    headers: {
-                        "Content-Type": "multipart/form-data"
-                    }
-                }
+                "content-type": `multipart/form-data; boundary=${
+                    data._boundary
+                }`
             })
         }
     },
