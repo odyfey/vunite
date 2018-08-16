@@ -55,12 +55,6 @@
                   <fa-icon icon="pencil-alt"></fa-icon>
                   <span>{{ $t('action.editPost') }}</span>
                 </a>
-                <a :title="$t('action.toBookmarks')" class="bookmark"
-                  :class="item.bookmarked ? 'bookmarked' : ''"
-                  @click="toggleBookmark(item)">
-                  <fa-icon :icon="['far', 'bookmark']"></fa-icon>
-                  <span>{{ $t('action.toBookmarks') }}</span>
-                </a>
                 <el-popover
                   :ref="`share-popover${index}`"
                   placement="bottom-end"

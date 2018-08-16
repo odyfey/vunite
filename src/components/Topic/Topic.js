@@ -316,20 +316,6 @@ export default {
             this.posts = this.posts.concat(next)
 
             this.loadingMore = false
-        },
-        async toggleBookmark(post) {
-            var val = !post.bookmarked
-            post.bookmarked = val
-            this.$forceUpdate()
-
-            const data = new FormData()
-            data.append("api_key", this.apiKey)
-            data.append("bookmarked", post.bookmarked)
-            await this.$http.put(`/posts/${post.id}/bookmark`, data, {
-                "content-type": `multipart/form-data; boundary=${
-                    data._boundary
-                }`
-            })
         }
     },
     async mounted() {
