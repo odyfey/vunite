@@ -3,9 +3,7 @@ export const config = {
 
     discourse: {
         backend: "http://discourse.test",
-        ssoProxy: "http://localhost:5000/api/auth",
-        // apiKey created in ${backend}/admin/api/keys
-        apiKey: process.env.DISCOURSE_API_KEY
+        ssoProxy: "http://localhost:5000/api/auth"
     },
 
     locale: "ru-RU"

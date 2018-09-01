@@ -35,7 +35,7 @@ const actions = {
     async fetchUserApiKey({ commit }, query) {
         try {
             const { data } = await Vue.http.get(
-                `${config.discourse.ssoProxy}/getToken?sso=${query.sso}&sig=${
+                `${config.discourse.ssoProxy}/getApiKey?sso=${query.sso}&sig=${
                     query.sig
                 }`,
                 {
