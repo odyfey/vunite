@@ -1,5 +1,5 @@
 import { config } from "@/config"
-import { TOKEN_STORAGE, API_KEY_STORAGE, USERINFO_STORAGE } from "@/const"
+import { API_KEY_STORAGE, USERINFO_STORAGE } from "@/const"
 import Sidebar from "@/components/Sidebar/"
 import FontAwesomeIcon from "@fortawesome/vue-fontawesome"
 import { mapGetters, mapMutations } from "vuex"
@@ -35,20 +35,17 @@ export default {
 
     methods: {
         ...mapMutations({
-            setBearer: "User/setBearer",
             setApiKey: "User/setApiKey",
             setUserInfo: "User/setUserInfo",
             clear: "User/clear"
         }),
 
         fetchLocalStorage() {
-            this.setBearer(localStorage.getItem(TOKEN_STORAGE))
             this.setApiKey(localStorage.getItem(API_KEY_STORAGE))
             this.setUserInfo(JSON.parse(localStorage.getItem(USERINFO_STORAGE)))
         },
 
         logout() {
-            localStorage.removeItem(TOKEN_STORAGE)
             localStorage.removeItem(API_KEY_STORAGE)
             localStorage.removeItem(USERINFO_STORAGE)
 

@@ -49,17 +49,7 @@ export function createApp({ isClient }) {
         withCredentials: true
     }
 
-    let _http = axios.create(httpOpts)
-    _http.interceptors.request.use(request => {
-        const token = store.getters["bearer"]
-
-        if (token) request.headers.common["Authorization"] = `Bearer ${token}`
-        else delete request.headers.common["Authorization"]
-
-        return request
-    })
-
-    Vue.http = Vue.prototype.$http = _http
+    Vue.http = Vue.prototype.$http = axios.create(httpOpts)
 
     /* eslint-disable no-new */
     const app = new Vue({
